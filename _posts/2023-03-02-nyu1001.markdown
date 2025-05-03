@@ -1,0 +1,19 @@
+---
+layout: post
+title: "Exploring the Data Science job market using Data Science"
+description: Hypothesis Testing, Regression, Classification
+---
+
+**What does it take to enter the Data Science job market?**
+
+For our 1001 capstone project at NYU Center for Data Science, we scraped over 16k data science job descriptions from LinkedIn and Glassdoor, and aggregated 3 yrs of data from Kaggle’s annual data science survey, which contains responses on respondents’ education, skills, level of experience and salary. Here are the questions we sought to answer:
+
+1. **Hypothesis Testing**: What job roles get you the highest salary, and what level of education is needed to break into these roles? Is there a mismatch between job descriptions and what is needed on the job?
+
+2. **Exploratory Data Analysis** : What are the top skills required for each role based on JDs? What skills should you add to your resume?
+
+3. **Regression**: Can we predict salaries based on an individual’s skillsets and experience level? What are the most important predictors of salary?
+
+4. **Classification & Clustering**: Can we suggest a job title based on an individual’s unique skillsets and experience?
+
+Check out the [full report](https://github.com/sharad5/Kaggle-Data-Science-ML-Survey-Analysis/blob/main/Project%20Report.pdf) and [repo](https://github.com/sharad5/Kaggle-Data-Science-ML-Survey-Analysis) to find the answers!

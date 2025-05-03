@@ -1,0 +1,15 @@
+- university: New York University (NYU)
+  years: 2022-2024
+  degree: M.S. Data Science
+  location: New York, NY
+  description:
+    - "GPA: 4.0/4.0"
+    - Coursework on NLP, Machine Learning, DL, Big Data and Causal Inference.
+
+- university: Birla Institute of Technology and Science (BITS), Pilani
+  years: 2015-2019
+  degree: B.E. (Hons.) Mechanical Engineering
+  location: Pilani, India
+  description:
+    - "GPA: 8.08/10"
+    - Coursework on Data Mining, Machine Learning, Deep Learning, Optimization.

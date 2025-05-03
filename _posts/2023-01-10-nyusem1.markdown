@@ -1,0 +1,19 @@
+---
+layout: post
+title: "My 1st semester at NYU"
+description: Reflections on learnings and life
+---
+
+The NYU Center for Data Science has been a great place to study for my Master's degree. I have completed my first semester and feel proud of my decision to come here. I was blown away by what I learned in a span of few weeks, really enjoyed the experience and put my heart into it!
+
+There was a perfect blend of theory and application in each class, taught by instructors who are not only experts in their fields but are extremely passionate about teaching their students. For example, in the Probability course, [Prof. Carlos Granda](https://math.nyu.edu/~cfgranda/) paired these topics together: Basic Probability - Monte Carlo simulation, Discrete distributions - Maximum Likelihood Estimation, Continuous distributions -  Inverse Transform Sampling, Joint Distributions - Causal Inference and Bayesian parametric modeling. This made the course so much more practical than traditional Probability courses I have taken in the past.
+
+In Linear Algebra, [Prof. Jason Altschuler](https://www.mit.edu/~jasonalt/) first taught us the basics of vector spaces, linear transformations and eigenvectors and then showed how these concepts are used in applications like PCA, SVD, Spectral clustering on Graphs, Linear Regression, and Convex optimization. As a result, I was able to develop a very concrete mathematical understanding of the fundamentals that we need for everything that pertains to data science and machine learning.
+
+Apart from academics, I learned how to cook (something I was not accustomed to as an international student), manage my own home and find things to keep myself happy.
+
+ Hoping to make the most out of my time at CDS and looking forward to the semester ahead!
+
+<picture>
+<img src="{{ 'images/brooklyn.jpeg' | relative_url }}" alt="Deep Thinking on the Brooklyn Bridge">
+</picture>

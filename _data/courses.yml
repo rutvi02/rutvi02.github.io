@@ -1,0 +1,25 @@
+- title: NYU Center for Data Science
+  courses:
+    - title: Natural Language Processing
+    - title: Deep Learning
+    - title: Machine Learning
+    - title: Big Data
+    - title: Causal Inference
+    - title: Probability & Statistics for Data Science
+    - title: Optimization & Computational Linear Algebra
+    - title: Introduction to Data Science
+
+- title: BITS Pilani
+  courses:
+    - title: Data Mining
+    - title: Machine Learning
+    - title: Neural Networks and Fuzzy Logic
+    - title: Engineering Optimization 
+    - title: Probability & Statistics
+    - title: Multivariate Calculus
+    - title: Linear Algebra
+    - title: Differential Equations
+    - title: Quality Control, Assurance & Reliability (applied statistics)
+    - title: Symbolic Logic
+    - title: Supply Chain Management
+    - title: Principles of Management
