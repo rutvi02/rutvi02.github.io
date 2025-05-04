@@ -1,12 +1,12 @@
 # Site settings
-title: Sargun Nagpal
-email: sargun.nagpal@nyu.edu
+title: Rutvi Khamar
+email: rkhamar2023@my.fit.edu
 description: > # this means to ignore newlines until "baseurl:"
    Master's student in Data Science at NYU. Interested in Machine Learning, Natural Language Processing, and Statistics. Bachelor's from BITS Pilani.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.sargun-nagpal.github.io" # the base hostname & protocol for your site
-production_url: "https://www.sargun-nagpal.github.io"
-github_username: sargun-nagpal
+url: "https://www.rutvi02.github.io" # the base hostname & protocol for your site
+production_url: "https://www.rutvi02.github.io"
+github_username: rutvi02
 permalink: /blog/:year/:month/:title.html
 
 twitter:
