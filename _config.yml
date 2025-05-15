@@ -2,7 +2,7 @@
 title: Rutvi Khamar
 email: rkhamar2023@my.fit.edu
 description: > # this means to ignore newlines until "baseurl:"
-   Master's student in Data Science at NYU. Interested in Machine Learning, Natural Language Processing, and Statistics. Bachelor's from BITS Pilani.
+   Master's student in CS at Florida Tech. Interested in Machine Learning, Natural Language Processing, and Statistics. Bachelor's from Adani University.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.rutvi02.github.io" # the base hostname & protocol for your site
 production_url: "https://www.rutvi02.github.io"
