@@ -45,11 +45,11 @@ Hindi-English hate speech detection."
   highlight: 2
 
 
-- title: ML pipeline for covid-19 case prediction
-  code: https://github.com/rintukutum/strainflow_manuscript
+- title: FlightMate
+  code: https://github.com/rutvi02/FlightMate
   paper: /papers/2021-strainflow.pdf
   image: strainflow.jpg
-  description: "Novel method of using Language Models and Machine Learning to predict COVID-19 cases and emerging variants."
+  description: "Your AI companion for all flight related queries"
   highlight: 3
 
 - title: Statistical Modeling of social interactions
