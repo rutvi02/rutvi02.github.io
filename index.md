@@ -28,10 +28,10 @@ In addition, I have 1 year of experience conducting research in the area of **ML
 
 <div class="me" markdown="1">
 <picture>
-  <source srcset='/images/sargun-nagpal.jpeg' type='image/jpeg' />
+  <source srcset='/images/main_page.jpeg' type='image/jpeg' />
   <img
-    src='/images/sargun-nagpal.jpeg'
-    alt='Sargun Nagpal'>
+    src='/images/main_page.jpeg'
+    alt='Rutvi Khamar'>
 </picture>
 
 {:.no-list}
