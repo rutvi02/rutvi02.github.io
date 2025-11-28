@@ -10,7 +10,7 @@ github_username: rutvi02
 permalink: /blog/:year/:month/:title.html
 
 twitter:
-  username: sargun_nagpal
+  username: khamarrutvi
 
 sass:
   style: compressed

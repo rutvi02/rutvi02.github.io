@@ -1,47 +1,47 @@
-- title: Multi-modal Detection via Language Queries
-  code: https://github.com/sharad5/OWL-ViT-Object-Detection
-  paper: /papers/2023-capstone.pdf
-  image: owlvit.jpg
-  description: "Trained multi-modal text-vision models for detecting previously unseen objects in video frames based on natural language
-queries."
-  highlight: 2
+# - title: Multi-modal Detection via Language Queries
+#   code: https://github.com/sharad5/OWL-ViT-Object-Detection
+#   paper: /papers/2023-capstone.pdf
+#   image: owlvit.jpg
+#   description: "Trained multi-modal text-vision models for detecting previously unseen objects in video frames based on natural language
+# queries."
+#   highlight: 2
 
-- title: LLMs for Code-Mixed Hate Speech Detection
-  code: https://github.com/shikharras/cm-hate-speech-detection
-  paper: /papers/2023-nlp.pdf
-  image: nlp_codemixed.jpg
-  description: "Fine-tuned 7B parameter LLMs (LLaMa), BERT-based models (XLM-R), and zero-shot LLM Prompting for
-Hindi-English hate speech detection."
-  highlight: 1
+# - title: LLMs for Code-Mixed Hate Speech Detection
+#   code: https://github.com/shikharras/cm-hate-speech-detection
+#   paper: /papers/2023-nlp.pdf
+#   image: nlp_codemixed.jpg
+#   description: "Fine-tuned 7B parameter LLMs (LLaMa), BERT-based models (XLM-R), and zero-shot LLM Prompting for
+# Hindi-English hate speech detection."
+#   highlight: 1
 
-- title: Video Frame Prediction and Segmentation with SSL
-  code: https://github.com/sharad5/Video-Prediction-and-Segmentation/tree/dev
-  paper: /papers/2023-deep_learning.pdf
-  image: video_pred.png
-  description: "Video Prediction with convolution-based SimVP and semantic segmentation with U-Net for modeling the physics of colliding objects."
+# - title: Video Frame Prediction and Segmentation with SSL
+#   code: https://github.com/sharad5/Video-Prediction-and-Segmentation/tree/dev
+#   paper: /papers/2023-deep_learning.pdf
+#   image: video_pred.png
+#   description: "Video Prediction with convolution-based SimVP and semantic segmentation with U-Net for modeling the physics of colliding objects."
 
-- title: Causal Counterfactual Forecasting (Causal ML)
-  code: https://github.com/sargun-nagpal/Causal-Counterfactual-Forecasting-ACIC2023
-  paper: /papers/2023-causal_inference.pdf
-  article: https://www.linkedin.com/feed/update/urn:li:activity:7066565415216259073/
-  image: crn.jpg
-  description: "Causal Inference x Machine Learning for forecasting counterfactual outcomes to answer what-if questions."
-  highlight: 5
+# - title: Causal Counterfactual Forecasting (Causal ML)
+#   code: https://github.com/sargun-nagpal/Causal-Counterfactual-Forecasting-ACIC2023
+#   paper: /papers/2023-causal_inference.pdf
+#   article: https://www.linkedin.com/feed/update/urn:li:activity:7066565415216259073/
+#   image: crn.jpg
+#   description: "Causal Inference x Machine Learning for forecasting counterfactual outcomes to answer what-if questions."
+#   highlight: 5
 
 
-- title: Implicit Feedback Recommender System (Big Data)
-  code: https://github.com/sargun-nagpal/big-data-recsys
-  paper: /papers/2023-big_data.pdf
+- title: Improving LLM Responses for Healthcare Using GraphRAG 
+  code: https://github.com/rutvi02/GraphRAG-for-healthcare
+  # paper: /papers/2023-big_data.pdf
   image: recsys.png
-  description: "Collaborative Filtering Recommender System in PySpark on a dataset with >179M user interactions."
+  description: "Designed a context-aware LLM for healthcare applications, reducing hallucinations using Graph-based Retrieval Augmented Generation (GraphRAG) and incorporating knowledge graphs using approx 30gb of data."
 
 
-- title: Data Science to unravel the Data Science job market
-  code: https://github.com/sharad5/Kaggle-Data-Science-ML-Survey-Analysis
-  paper: /papers/2022-NYU_1001.pdf
-  article: https://www.linkedin.com/posts/sargun-nagpal_github-sharad5kaggle-data-science-ml-survey-analysis-activity-7015899359607201792-6gwm?utm_source=share&utm_medium=member_desktop
+- title: "Genetic Optimization of Fuzzy Inference Systems for Enhanced Interpretability in Machine Learning"
+  code: https://github.com/rutvi02
+  # paper: /papers/2022-NYU_1001.pdf
+  # article: https://www.linkedin.com/posts/sargun-nagpal_github-sharad5kaggle-data-science-ml-survey-analysis-activity-7015899359607201792-6gwm?utm_source=share&utm_medium=member_desktop
   image: stonks.jpg
-  description: "Statistical analysis of job data (Hypothesis Testing), Salary Prediction (Regression), and Job Title Prediction (Classification)."
+  description: "This project aims to bridge this gap by optimizing fuzzy inference systems using genetic algorithm. The primary goal is to enhance the interpretability of traditional machine learning models while preserving or even improving their predictive accuracy."
   highlight: 2
 
 
@@ -52,27 +52,27 @@ Hindi-English hate speech detection."
   description: "Your AI companion for all flight related queries"
   highlight: 3
 
-- title: Statistical Modeling of social interactions
-  paper: /papers/2022-contactmix.pdf
-  article: https://www.linkedin.com/posts/sargun-nagpal_delighted-to-share-the-preprint-of-our-work-activity-6967642681841725440-DT5U
-  image: contactmix.png
-  description: "Statistical Analysis of contact mixing patterns to devise interventions to curb the spread of infectious diseases."
+# - title: Statistical Modeling of social interactions
+#   paper: /papers/2022-contactmix.pdf
+#   article: https://www.linkedin.com/posts/sargun-nagpal_delighted-to-share-the-preprint-of-our-work-activity-6967642681841725440-DT5U
+#   image: contactmix.png
+#   description: "Statistical Analysis of contact mixing patterns to devise interventions to curb the spread of infectious diseases."
 
 
-- title: Document Information Extraction & Generation
-  image: ri.jpg
-  description: "CV and NLP based pipeline to extract regulatory inquiries in image based PDFs and generate automated responses. Reduced the manual workload of typing over 1200 responses each month."
+# - title: Document Information Extraction & Generation
+#   image: ri.jpg
+#   description: "CV and NLP based pipeline to extract regulatory inquiries in image based PDFs and generate automated responses. Reduced the manual workload of typing over 1200 responses each month."
 
 
-- title: Tweet surges & covid-19 cases
-  paper: /papers/2021-twittercovid.pdf
-  image: twittercovid.PNG
-  description: "Studied the relationship between Tweets and covid cases in India, analyzed the significant themes associated with the latent dimensions."
+# - title: Tweet surges & covid-19 cases
+#   paper: /papers/2021-twittercovid.pdf
+#   image: twittercovid.PNG
+#   description: "Studied the relationship between Tweets and covid cases in India, analyzed the significant themes associated with the latent dimensions."
 
 
-- title: Email Fraud surveillance
-  image: bec.jpg
-  description: "Python service to scan the text content and metadata of emails to identify Business Email Compromise (BEC). We identified a 90 year old customer who had been compromised for over a year."
+# - title: Email Fraud surveillance
+#   image: bec.jpg
+#   description: "Python service to scan the text content and metadata of emails to identify Business Email Compromise (BEC). We identified a 90 year old customer who had been compromised for over a year."
 
 
 
