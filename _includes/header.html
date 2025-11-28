@@ -1,7 +1,11 @@
 {% assign current = page.url | downcase | split: '/' %}
 <header class="page-header">
   <nav class="container">
-    <a class="site-title" href="{{ absolute_url }}/">{{ site.title }}</a>
+    <a class="site-title" href="{{ absolute_url }}/">
+      <img src="{{ '/Users/rutvikhamar/Desktop/rutvi02.github.io/rpk.png' | relative_url }}" alt="Rutvi Khamar Logo" class="site-title-icon"> 
+      {{ site.title }}
+    </a>
+    <!-- <a class="site-title" href="{{ absolute_url }}/">{{ site.title }}</a> -->
 
     <a href="{{ '/projects/' | relative_url }}" {% if current[1] == 'projects' %}class="active"{% endif %}>Projects</a>
     <a href="{{ '/publications/' | relative_url }}" {% if current[1] == 'publications' %}class="active"{% endif %}>Publications</a>
