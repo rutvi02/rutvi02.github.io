@@ -28,9 +28,9 @@ In addition, I have 1 year of experience conducting research in the area of **ML
 
 <div class="me" markdown="1">
 <picture>
-  <source srcset='/images/main_page.jpeg' type='image/jpeg' />
+  <source srcset='/images/WhatsApp.jpeg' type='image/jpeg' />
   <img
-    src='/images/main_page.jpeg'
+    src='/images/WhatsApp.jpeg'
     alt='Rutvi Khamar'>
 </picture>
 
