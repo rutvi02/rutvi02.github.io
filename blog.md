@@ -4,11 +4,6 @@ permalink: /blog/
 title: Blog posts
 ---
 
-<!-- {% include search.html %} -->
-
-<!-- <p class="rss-subscribe">Subscribe <a href="{{ "/feed.xml" | absolute_url }}">via RSS</a></p> -->
-
-
 <div id="facets" class="hidden">
   <div class="facet" id="tags">
     <strong>Tag</strong>
@@ -17,7 +12,7 @@ title: Blog posts
 </div>
 
 <div class="p1 db">
-  <input id="ft-search" type="search" placeholder="Search by keyword..." />
+  <input id="ft-search" type="search" placeholder="Search by title or tags..." />
 </div>
 
 <p id="clear-filters" class="hidden">
@@ -29,11 +24,13 @@ title: Blog posts
   {% for year in postyears %}
     <h2 id="y{{ year.name }}" class="year">{{ year.name }}</h2>
     {% for post in year.items %}
-      {% include blog-item.html post=post %} {% endfor %}
+      {% include blog-item.html post=post %}
+    {% endfor %}
   {% endfor %}
 </div>
 
 <script>
+  // Including the required libraries at the end
   {% include itemsjs.min.js %}
   {% include postfilter.js %}
 </script>
