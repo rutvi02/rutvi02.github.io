@@ -1,40 +1,50 @@
-- title: Data Science Graduate Intern
-  years: Jun 2023 - Aug 2023
-  company: Marsh McLennan
-  location: New York, NY
-  description: Peer-grouping of insurance clients based on claims data (LLMs, Clustering, Dimensionality Reduction, Hypothesis Testing).
+- title: AI/ML Engineer
+  years: Aug 2025 - Present
+  company: Steppingblocks
+  location: Melbourne, FL, USA
+  description: Splink (Probabilistic record linkage), LLMs, RAG, classification emdedding models
 
-- title: Software Engineer - Data Science
-  years: Jun 2019 - Jul 2021
-  company: Fidelity Investments
-  location: Bangalore, India
-  description: Information extraction from unstructured documents, email fraud surveillance, text generation and summarization.
-
-- title: Research Engineer
-  years: Aug 2021 - Jul 2022
-  company: ML2CT Lab, Ashoka University
+- title: Research Assistant
+  years: May 2024 - May 2025
+  company: Florida Institute of Technology
   mentors: 
-    - Dr. Gautam Menon
-    - Dr. Debayan Gupta
-  location: Sonipat, India
-  description: Statistical modeling of social contacts in cohort studies, synthetic population generation and agent based simulations.
+    - Dr. Debasis Mitra
+  location: Melbourne, FL, USA
+  description: Early breast Cancer detection using Non-negative matrix facorization (Thesis)
+
+
+- title: Graduate Teaching Assistant
+  years: Aug 2024 - May 2025
+  company: Florida Institute of Technology
+  mentors: 
+    - Dr. Philip Chan
+  location: Melbourne, FL, USA
+  description: Data Structures and Algorithms
+
+- title: Research Assistant
+  years: May 2024 - Jun 2024
+  company: L3Harris Institute for Assured Information
+  mentors: 
+    - Dr. Fitzroy Nembhard
+  location: Melbourne, FL, USA
+  description: LLM, NLP RAG 
   
-- title: Research Trainee
-  years: Mar 2021 - Jul 2022
-  company: TavLab, IIIT Delhi
-  mentors: 
-    - Dr. Tavpritesh Sethi
-  location: Delhi, India
-  description: NLP for misinformation detection, Language Models and Machine Learning for covid-19 case prediction.
+- title: Graduate Student Assistant
+  years: Jan 2024 - May 2024
+  company: Florida Institute of Technology
+  # mentors: 
+  #   - Dr. Tavpritesh Sethi
+  location: Melbourne, FL, USA
+  description: Model based software engineering, and formal methods
     
 - title: Data Science Intern
-  years: Jul 2018 - Dec 2018
-  company: Fidelity Investments
-  location: Bangalore, India
-  description: Cryptocurrency price prediction using stacked LSTM networks, time series modeling of Bitcoin prices.
+  years: Jan 2023 - Jul 2023
+  company: Lendingkart
+  location: Ahmedabad, GJ, India
+  description: data science ML , credit risk analysis, loan verfiction prediction
   
-- title: Summer Intern
-  years: May 2017 - Jul 2017
-  company: Hindustan Petroleum Corporation Ltd.
-  location: Delhi, India
-  description: Computational data pipelines to monitor and prevent oil pilferage and fraud.
+# - title: Summer Intern
+#   years: May 2017 - Jul 2017
+#   company: Hindustan Petroleum Corporation Ltd.
+#   location: Delhi, India
+#   description: Computational data pipelines to monitor and prevent oil pilferage and fraud.
