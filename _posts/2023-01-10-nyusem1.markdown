@@ -3,9 +3,7 @@ layout: post
 title: "My 1st semester at NYU"
 description: Reflections on learnings and life
 
-tags:
-  - Machine Learning
-  - Statistics
+tags: Machine Learning
 ---
 
 The NYU Center for Data Science has been a great place to study for my Master's degree. I have completed my first semester and feel proud of my decision to come here. I was blown away by what I learned in a span of few weeks, really enjoyed the experience and put my heart into it!

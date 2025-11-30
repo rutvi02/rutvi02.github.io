@@ -2,9 +2,8 @@
 layout: post
 title: "Exploring the Data Science job market using Data Science"
 description: Hypothesis Testing, Regression, Classification
-tags:
-  - NLP
-  - Data Science
+tags: Data Science
+
 ---
 
 **What does it take to enter the Data Science job market?**
