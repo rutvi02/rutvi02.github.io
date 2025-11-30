@@ -9,7 +9,7 @@ layout: default
 <div class="post-list">
   {% for post in site.posts %}
     {% if post.tags contains page.tag %}
-      {% include blog-item-simple.html post=post %}
+      {% include blog-item-categorization.html post=post %}
     {% endif %}
   {% endfor %}
 </div>
