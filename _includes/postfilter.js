@@ -1,56 +1,45 @@
 (function() {
-  var pubElems = document.querySelectorAll(".post-header");
+  // 1. Selectors and Data Gathering
+  var blogElems = document.querySelectorAll(".blog-post"); 
   var yearElems = document.querySelectorAll(".year");
 
   var clearElem = document.getElementById("clear-filters");
-  var highlightElem = document.getElementById("highlight");
+  var ftSearch = document.getElementById("ft-search");
 
   var data = [];
   var allYears = new Set();
 
-  pubElems.forEach(function(element) {
-    var item = JSON.parse(element.getAttribute("data-post"));
+  blogElems.forEach(function(element) {
+    // CHANGED: Reading from the data-post attribute
+    var item = JSON.parse(element.getAttribute("data-post")); 
 
-    if (item.highlight) {
-      item.highlight = "Yes";
-    }
-
-    allYears.add(item.year);
+    allYears.add(item.date.substring(0, 4)); 
 
     item.element = element;
-
-    item.authors = (item.authors || []).filter(function(d) {
-      return d !== "Rutvi Khamar";
-    });
-
+    
+    // Ensure tags is treated as an array for ItemsJS
+    item.tags = Array.isArray(item.tags) ? item.tags : (item.tags ? [item.tags] : []);
+    
+    // Set categories to an empty array so it doesn't cause errors if searched
+    item.categories = []; 
+    
     data.push(item);
   });
 
+  // 2. ItemsJS Configuration
   var engine = itemsjs(data, {
     aggregations: {
-      venue_tags: {
-        size: 5
-      },
-      authors: {
-        size: 6
-      },
-      awards: {
-        size: 5
-      },
-      highlight: {
-        size: 1
-      },
-      tags: {
-        size: 6
-      },
-      type: {
-        size: 5
+      // ONLY using tags, matching your post structure and blog.md HTML
+      tags: { 
+        size: 10 
       }
     },
-    searchableFields: ["authors", "awards", "tags", "type", "title", "content"]
+    // Searchable fields
+    searchableFields: ["tags", "title", "content", "description"] 
   });
 
-  // get default search from URL
+  // 3. Filtering and Search Logic (Remaining code for setAggs, search, etc.)
+  
   var hash = decodeURIComponent(window.location.hash.substr(1));
 
   var result = hash.split('&').reduce(function (res, item) {
@@ -70,6 +59,8 @@
   function setAggs(aggs) {
     document.querySelectorAll("#facets > .facet").forEach(function(facet) {
       var id = facet.getAttribute("id");
+      
+      if (!aggs[id]) return; 
 
       var buckets = aggs[id].buckets;
 
@@ -120,7 +111,6 @@
           if (bucket.in_query) {
             child.classList.add("in-query");
 
-            // remove filter
             child.onclick = function() {
               query.filters[id].splice(
                 query.filters[id].indexOf(bucket.key),
@@ -132,7 +122,6 @@
               search(query);
             };
           } else {
-            // add to filter
             child.onclick = function() {
               if (query.filters[id]) {
                 query.filters[id].push(bucket.key);
@@ -149,7 +138,6 @@
     });
   }
 
-  var ftSearch = document.getElementById("ft-search");
   ftSearch.oninput = function() {
     var val = ftSearch.value;
 
@@ -169,19 +157,19 @@
 
     setAggs(result.data.aggregations);
 
-    var counter = pubElems.length - result.data.items.length;
+    var counter = blogElems.length - result.data.items.length;
 
     document.getElementById("count_hidden").innerText = counter;
-    document.getElementById("count_total").innerText = pubElems.length;
+    document.getElementById("count_total").innerText = blogElems.length;
 
-    pubElems.forEach(function(element) {
+    blogElems.forEach(function(element) { 
       element.classList.add("hidden");
     });
 
     var visibleYears = {};
     result.data.items.forEach(function(item) {
       item.element.classList.remove("hidden");
-      visibleYears[item.year] = 1;
+      visibleYears[item.date.substring(0, 4)] = 1;
     });
 
     yearElems.forEach(function(element) {
@@ -193,27 +181,15 @@
       }
     });
 
-    // show or hide notification about filtered papers
     if (Object.keys(query.filters).length || query.query) {
       clearElem.classList.remove("hidden");
     } else {
       clearElem.classList.add("hidden");
     }
 
-    highlightElem.checked = !!query.filters.highlight;
-
     console.timeEnd("Search");
   }
-
-  highlightElem.onchange = function() {
-    if (highlightElem.checked) {
-      query.filters.highlight = ["Yes"];
-    } else {
-      delete query.filters.highlight;
-    }
-    search(query);
-  };
-
+  
   clearElem.onclick = function() {
     query = { filters: {} };
     ftSearch.value = "";
@@ -223,5 +199,4 @@
   search(query);
 
   document.getElementById("facets").classList.remove("hidden");
-  document.getElementById("only-highlight").classList.remove("hidden");
 })();

@@ -1,0 +1,21 @@
+{% comment %} 
+This file creates the HTML block for a single post on the blog index page.
+It uses 'data-post' to match the convention found in _layouts/post.html.
+{% endcomment %}
+
+<div class="blog-post" data-post='{{ include.post | jsonify | escape }}'>
+  <h3>
+    <a class="post-link" href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a>
+  </h3>
+  <span class="post-meta" title="{{ include.post.date | date: "%b %-d Y" }}">{{ include.post.date | date: "%b %-d" }} <span class="meta-year">{{ include.post.date | date: "%Y" }}</span></span>
+  
+  {% if include.post.description %}<p class="post-subtitle">{{ include.post.description }}</p>{% endif %}
+  
+  {% if include.post.tags %}
+    <div class="tags">
+      {% for tag in include.post.tags %}
+        <span class="tag-item">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
