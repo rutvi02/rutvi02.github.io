@@ -3,13 +3,14 @@ layout: default
 ---
 
 <section class="container post">
-  <header class="post-header">
+  <header class="post-header" data-post='{{ page | jsonify | escape }}'>
     <h1 class="post-title">{{ page.title }}</h1>
     {% if page.description %}<p class="post-subtitle">{{ page.description }}</p>{% endif %}
     <p class="post-meta">
       Published on {{ page.date | date: "%b %-d, %Y" }}
       {% if page.author %} • {{ page.author }}{% endif %}
       {% if page.meta %} • {{ page.meta }}{% endif %}
+      {% if page.tag %} • {{ page.tag }}{% endif %}
       </p>
   </header>
 

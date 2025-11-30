@@ -33,7 +33,7 @@ title: Blog posts
 </div>
 
 <div class="p1 db">
-  <input id="ft-search" type="search" placeholder="Search papers..." />
+  <input id="ft-search" type="search" placeholder="Search by keyword..." />
 </div>
 
 <label id="only-highlight" class="hidden">

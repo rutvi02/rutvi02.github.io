@@ -1,5 +1,5 @@
 (function() {
-  var pubElems = document.querySelectorAll(".post");
+  var pubElems = document.querySelectorAll(".post-header");
   var yearElems = document.querySelectorAll(".year");
 
   var clearElem = document.getElementById("clear-filters");
@@ -9,7 +9,7 @@
   var allYears = new Set();
 
   pubElems.forEach(function(element) {
-    var item = JSON.parse(element.getAttribute("data-pub"));
+    var item = JSON.parse(element.getAttribute("data-post"));
 
     if (item.highlight) {
       item.highlight = "Yes";
