@@ -27,6 +27,12 @@ title: Blog posts
       </h3>
       <span class="post-meta" title="{{ post.date | date: "%b %-d Y" }}">{{ post.date | date: "%b %-d" }} <span class="meta-year">{{ currentdate }}</span></span>
       {% if post.description %}<p class="post-subtitle">{{ post.description }}</p>{% endif %}
+      {% if page.tags %}
+        • Tags:
+        {% for tag in page.tags %}
+          <span class="tag-item">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      {% endif %}
     </div>
   {% endfor %}
 </div>
