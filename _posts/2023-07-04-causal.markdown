@@ -2,6 +2,10 @@
 layout: post
 title: "Causal Counterfactual Forecasting"
 description: Causal Inference x Machine Learning
+
+tags:
+  - Machine Learning
+  - Causal Inference
 ---
 
 How can a decision-maker forecast the **causal impact of interventions** over time? This question lies at the intersection of Causal Inference and Machine Learning.
