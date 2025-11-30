@@ -8,7 +8,7 @@ title: Blog posts
 
 <!-- <p class="rss-subscribe">Subscribe <a href="{{ "/feed.xml" | absolute_url }}">via RSS</a></p> -->
 
-<div id="facets" class="hidden">
+<!-- <div id="facets" class="hidden">
   <!-- <div class="facet" id="venue_tags">
     <strong>Venue</strong>
     <ul></ul>
@@ -17,10 +17,10 @@ title: Blog posts
     <strong>Author</strong>
     <ul></ul>
   </div> -->
-  <div class="facet" id="tags">
+  <!-- <div class="facet" id="tags">
     <strong>Tag</strong>
     <ul></ul>
-  </div>
+  </div> -->
   <!-- <div class="facet" id="type">
     <strong>Type</strong>
     <ul></ul>
@@ -30,7 +30,7 @@ title: Blog posts
     <ul></ul>
   </div> -->
 
-</div>
+<!-- </div>
 
 <div class="p1 db">
   <input id="ft-search" type="search" placeholder="Search by tags..." />
@@ -61,10 +61,10 @@ title: Blog posts
       {% if post.description %}<p class="post-subtitle">{{ post.description }}</p>{% endif %}
     </div>
   {% endfor %}
-</div>
+</div> -->
 
-
+<!-- 
 <script>
   {% include itemsjs.min.js %}
   {% include postfilter.js %}
-</script>
+</script> --> -->
