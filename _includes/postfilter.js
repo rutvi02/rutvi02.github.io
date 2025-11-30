@@ -1,31 +1,28 @@
 document.addEventListener("DOMContentLoaded", function() {
-  
+
   (function() {
-    
+
     // --- 1. Selectors and Data Gathering ---
     var blogElems = document.querySelectorAll(".blog-post");
-    var yearElems = document.querySelectorAll(".year");
 
+    // Removed: yearElems selector
     var clearElem = document.getElementById("clear-filters");
-    var ftSearch = document.getElementById("ft-search"); // Added selector for search box
+    var ftSearch = document.getElementById("ft-search");
 
     var data = [];
-    var allYears = new Set();
+    // Removed: allYears set
 
     blogElems.forEach(function(element) {
       var item;
       try {
           // Reading from the data-post attribute
-          item = JSON.parse(element.getAttribute("data-post")); 
+          item = JSON.parse(element.getAttribute("data-post"));
       } catch (e) {
           console.error("Error parsing JSON data for post:", element, e);
           return; // Skip this element if parsing failed
       }
-      
-      // Get the year from the post date string
-      if (item.date) {
-        allYears.add(item.date.substring(0, 4));
-      }
+
+      // Removed: Year extraction logic
 
       item.element = element;
 
@@ -39,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
       } else {
           item.tags = [];
       }
-      
+
       data.push(item);
     });
 
@@ -61,6 +58,8 @@ document.addEventListener("DOMContentLoaded", function() {
     var result = hash.split('&').reduce(function (res, item) {
         var [key, value] = item.split('=');
         if (key && value) {
+          // The assumption here is that filters will only ever be 'tags'
+          // but we keep the generic key/value logic for robustness.
           if (key in res) {
             res[key].push(value)
           } else {
@@ -78,7 +77,10 @@ document.addEventListener("DOMContentLoaded", function() {
       document.querySelectorAll("#facets > .facet").forEach(function(facet) {
         var id = facet.getAttribute("id");
 
-        if (!aggs[id]) return; 
+        // The only expected facet ID now is 'tags'
+        if (id !== 'tags') return;
+
+        if (!aggs[id]) return;
 
         var buckets = aggs[id].buckets;
 
@@ -159,7 +161,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // --- 5. Search Input Handler ---
-    var ftSearch = document.getElementById("ft-search");
     ftSearch.oninput = function() {
       var val = ftSearch.value;
 
@@ -189,23 +190,13 @@ document.addEventListener("DOMContentLoaded", function() {
         element.classList.add("hidden");
       });
 
-      var visibleYears = {};
+      // Removed: visibleYears logic
       result.data.items.forEach(function(item) {
         item.element.classList.remove("hidden");
-        // Ensure the year is extracted correctly from the item.date property
-        if (item.date) {
-            visibleYears[item.date.substring(0, 4)] = 1;
-        }
+        // Removed: Year visibility logic
       });
 
-      yearElems.forEach(function(element) {
-        element.classList.add("hidden");
-      });
-      allYears.forEach(function(year) {
-        if (year in visibleYears) {
-          document.getElementById("y" + year).classList.remove("hidden");
-        }
-      });
+      // Removed: Hiding and showing year elements logic
 
       // show or hide notification about filtered posts
       if (Object.keys(query.filters).length || query.query) {
@@ -213,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function() {
       } else {
         clearElem.classList.add("hidden");
       }
-      
+
       console.timeEnd("Search");
     }
 
