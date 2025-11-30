@@ -5,11 +5,12 @@ title: Blog posts
 ---
 
 <div id="facets" class="hidden">
-  <div class="facet" id="tags">
-    <strong>Tags</strong>
-    <ul></ul>
+  <div id="tags" class="facet">
+    <h3>Tags</h3>
+    <ul>
+      </ul>
   </div>
-  </div>
+</div>
 <!-- <input id="ft-search" type="search" placeholder="Search by title or tags..." /> -->
 
 <div class="post-list">
