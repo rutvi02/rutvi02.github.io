@@ -27,3 +27,4 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-mentions
+  - jekyll-archives

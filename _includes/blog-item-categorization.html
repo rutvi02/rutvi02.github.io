@@ -1,9 +1,9 @@
 {% comment %} 
-This file creates the HTML block for a single post on the blog index page.
-It uses 'data-post' to match the convention found in _layouts/post.html.
+File: _includes/blog-item-categorization.html
+Displays post details and links the tags for categorization.
 {% endcomment %}
 
-<div class="blog-post" data-post='{{ include.post | jsonify | escape }}'>
+<div class="blog-post">
   <h3>
     <a class="post-link" href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a>
   </h3>
@@ -14,7 +14,7 @@ It uses 'data-post' to match the convention found in _layouts/post.html.
   {% if include.post.tags %}
     <div class="tags">
       {% for tag in include.post.tags %}
-        <span class="tag-item">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}
+        <a href="{{ site.baseurl }}/tag/{{ tag | slugify }}/" class="tag-item">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
       {% endfor %}
     </div>
   {% endif %}

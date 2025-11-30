@@ -14,16 +14,35 @@ document.addEventListener("DOMContentLoaded", function() {
     var allYears = new Set();
 
     blogElems.forEach(function(element) {
-      // CHANGED: Reading from the data-post attribute
-      var item = JSON.parse(element.getAttribute("data-post")); 
-
-      // Get the year from the post date string
-      allYears.add(item.date.substring(0, 4));
+      var item;
+      try {
+          // 1. Safely parse the data string into a JS object
+          item = JSON.parse(element.getAttribute("data-post")); 
+      } catch (e) {
+          console.error("Error parsing JSON data for post:", element, e);
+          return; // Skip this element if parsing failed
+      }
+      
+      // Get the year from the post date string (e.g., "2024-01-15 00:00:00 -0500" -> "2024")
+      if (item.date) {
+        allYears.add(item.date.substring(0, 4));
+      }
 
       item.element = element;
 
-      // CRITICAL FIX: Ensure 'tags' property is an array for ItemsJS
-      item.tags = Array.isArray(item.tags) ? item.tags : (item.tags ? [item.tags] : []);
+      // 2. CRITICAL FIX: Robustly ensure 'tags' property is an array for ItemsJS
+      if (item.tags) {
+          if (typeof item.tags === 'string') {
+              // Handle comma-separated string tags if that's how it's being serialized
+              item.tags = item.tags.split(/,\s*/).map(t => t.trim()).filter(t => t.length > 0);
+          } else if (!Array.isArray(item.tags)) {
+              // If it's a single item (not string, not array), force it into an array
+              item.tags = [item.tags];
+          }
+      } else {
+          // If the post has no tags property, initialize it as an empty array
+          item.tags = [];
+      }
       
       data.push(item);
     });
