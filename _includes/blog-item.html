@@ -1,0 +1,22 @@
+{% comment %} 
+File: _includes/blog-item.html
+This file creates the HTML block for a single post on the blog index page, 
+including the data attribute required for the client-side search.
+{% endcomment %}
+
+<div class="blog-post" data-post='{{ include.post | jsonify | escape }}'>
+  <h3>
+    <a class="post-link" href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a>
+  </h3>
+  <!-- <span class="post-meta" title="{{ include.post.date | date: "%b %-d Y' }}">{{ include.post.date | date: "%b %-d" }} <span class="meta-year">{{ include.post.date | date: "%Y" }}</span></span> -->
+  
+  {% if include.post.description %}<p class="post-subtitle">{{ include.post.description }}</p>{% endif %}
+  
+  {% if include.post.tags %}
+    <div class="tags">
+      {% for tag in include.post.tags %}
+        <span class="tag-item">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>

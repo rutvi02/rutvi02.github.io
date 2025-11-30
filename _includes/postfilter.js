@@ -3,12 +3,11 @@ document.addEventListener("DOMContentLoaded", function() {
   (function() {
     
     // --- 1. Selectors and Data Gathering ---
-    // CHANGED: Selectors for blog elements and data attribute
     var blogElems = document.querySelectorAll(".blog-post");
     var yearElems = document.querySelectorAll(".year");
 
     var clearElem = document.getElementById("clear-filters");
-    // Removed: highlightElem (Since we removed the highlight feature)
+    var ftSearch = document.getElementById("ft-search"); // Added selector for search box
 
     var data = [];
     var allYears = new Set();
@@ -16,31 +15,28 @@ document.addEventListener("DOMContentLoaded", function() {
     blogElems.forEach(function(element) {
       var item;
       try {
-          // 1. Safely parse the data string into a JS object
+          // Reading from the data-post attribute
           item = JSON.parse(element.getAttribute("data-post")); 
       } catch (e) {
           console.error("Error parsing JSON data for post:", element, e);
           return; // Skip this element if parsing failed
       }
       
-      // Get the year from the post date string (e.g., "2024-01-15 00:00:00 -0500" -> "2024")
+      // Get the year from the post date string
       if (item.date) {
         allYears.add(item.date.substring(0, 4));
       }
 
       item.element = element;
 
-      // 2. CRITICAL FIX: Robustly ensure 'tags' property is an array for ItemsJS
+      // CRITICAL FIX: Robustly ensure 'tags' property is an array for ItemsJS
       if (item.tags) {
           if (typeof item.tags === 'string') {
-              // Handle comma-separated string tags if that's how it's being serialized
               item.tags = item.tags.split(/,\s*/).map(t => t.trim()).filter(t => t.length > 0);
           } else if (!Array.isArray(item.tags)) {
-              // If it's a single item (not string, not array), force it into an array
               item.tags = [item.tags];
           }
       } else {
-          // If the post has no tags property, initialize it as an empty array
           item.tags = [];
       }
       
@@ -50,14 +46,13 @@ document.addEventListener("DOMContentLoaded", function() {
     // --- 2. ItemsJS Configuration ---
     var engine = itemsjs(data, {
       aggregations: {
-        // ONLY using tags, matching your blog structure
+        // ONLY using tags
         tags: {
           size: 10
         }
       },
-      // Searching title and tags, as requested
+      // Searching title and tags only
       searchableFields: ["tags", "title"]
-      // Removed: authors, awards, etc.
     });
 
     // --- 3. URL Hash & Initial Query ---
@@ -73,17 +68,16 @@ document.addEventListener("DOMContentLoaded", function() {
           }
         }
         return res;
-    }, {});
+        }
+    , {});
 
     var query = { filters: result };
 
     // --- 4. setAggs Function (Renders Filters) ---
     function setAggs(aggs) {
-      // Since we only have one facet (#tags), this loop still works.
       document.querySelectorAll("#facets > .facet").forEach(function(facet) {
         var id = facet.getAttribute("id");
 
-        // Skip if the aggregation ID doesn't exist (e.g., if a facet HTML exists but isn't configured in ItemsJS)
         if (!aggs[id]) return; 
 
         var buckets = aggs[id].buckets;
@@ -186,7 +180,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
       setAggs(result.data.aggregations);
 
-      // CHANGED: Use blogElems for count and iteration
       var counter = blogElems.length - result.data.items.length;
 
       document.getElementById("count_hidden").innerText = counter;
@@ -199,7 +192,10 @@ document.addEventListener("DOMContentLoaded", function() {
       var visibleYears = {};
       result.data.items.forEach(function(item) {
         item.element.classList.remove("hidden");
-        visibleYears[item.date.substring(0, 4)] = 1;
+        // Ensure the year is extracted correctly from the item.date property
+        if (item.date) {
+            visibleYears[item.date.substring(0, 4)] = 1;
+        }
       });
 
       yearElems.forEach(function(element) {
@@ -211,19 +207,15 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
 
-      // show or hide notification about filtered papers
+      // show or hide notification about filtered posts
       if (Object.keys(query.filters).length || query.query) {
         clearElem.classList.remove("hidden");
       } else {
         clearElem.classList.add("hidden");
       }
       
-      // Removed highlight checkbox logic
-
       console.timeEnd("Search");
     }
-
-    // Removed highlightElem.onchange function
 
     // --- 7. Clear Filters Handler ---
     clearElem.onclick = function() {
@@ -236,6 +228,5 @@ document.addEventListener("DOMContentLoaded", function() {
     search(query);
 
     document.getElementById("facets").classList.remove("hidden");
-    // Removed: document.getElementById("only-highlight").classList.remove("hidden");
   })();
 });
