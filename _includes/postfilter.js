@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
   (function() {
 
     // --- 1. Selectors and Data Gathering ---
-    var blogElems = document.querySelectorAll(".blog-item");
+    var blogElems = document.querySelectorAll(".blog-entry");
 
     // The following variables were removed from the initial block list, but their definitions were not.
     // They are not needed for tag filtering/search.
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
       var item;
       try {
           // Reading from the data-post attribute
-          item = JSON.parse(element.getAttribute("data-post"));
+          item = JSON.parse(element.getAttribute("post-json"));
       } catch (e) {
           console.error("Error parsing JSON data for post:", element, e);
           return; // Skip this element if parsing failed

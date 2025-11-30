@@ -11,7 +11,8 @@ class: home
 <div class="intro" markdown="1">
 I am a **Master's in Computer Science** student at the [Florida Institute of Technology](https://www.fit.edu/).
 
-Need to add a lot here..
+Need to add a lot here.. 
+Work In Progress... COMING SOOOOOON!!!!!!
 
 </div>
 
