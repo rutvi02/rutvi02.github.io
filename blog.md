@@ -66,5 +66,5 @@ title: Blog posts
 
 <script>
   {% include itemsjs.min.js %}
-  {% include pubfilter.js %}
+  {% include postfilter.js %}
 </script>
