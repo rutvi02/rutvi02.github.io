@@ -3,14 +3,17 @@ document.addEventListener("DOMContentLoaded", function() {
   (function() {
 
     // --- 1. Selectors and Data Gathering ---
-    var blogElems = document.querySelectorAll(".blog-post");
+    var blogElems = document.querySelectorAll(".blog-item");
 
-    // Removed: yearElems selector
+    // The following variables were removed from the initial block list, but their definitions were not.
+    // They are not needed for tag filtering/search.
+    // var yearElems; 
+    // var allYears; 
+
     var clearElem = document.getElementById("clear-filters");
     var ftSearch = document.getElementById("ft-search");
 
     var data = [];
-    // Removed: allYears set
 
     blogElems.forEach(function(element) {
       var item;
@@ -21,8 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
           console.error("Error parsing JSON data for post:", element, e);
           return; // Skip this element if parsing failed
       }
-
-      // Removed: Year extraction logic
 
       item.element = element;
 
@@ -49,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       },
       // Searching title and tags only
-      searchableFields: ["tags", "title"]
+      searchableFields: ["tags"]
     });
 
     // --- 3. URL Hash & Initial Query ---
@@ -58,8 +59,6 @@ document.addEventListener("DOMContentLoaded", function() {
     var result = hash.split('&').reduce(function (res, item) {
         var [key, value] = item.split('=');
         if (key && value) {
-          // The assumption here is that filters will only ever be 'tags'
-          // but we keep the generic key/value logic for robustness.
           if (key in res) {
             res[key].push(value)
           } else {
@@ -77,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
       document.querySelectorAll("#facets > .facet").forEach(function(facet) {
         var id = facet.getAttribute("id");
 
-        // The only expected facet ID now is 'tags'
+        // The only expected facet ID is 'tags'
         if (id !== 'tags') return;
 
         if (!aggs[id]) return;
@@ -186,17 +185,15 @@ document.addEventListener("DOMContentLoaded", function() {
       document.getElementById("count_hidden").innerText = counter;
       document.getElementById("count_total").innerText = blogElems.length;
 
+      // Hide all posts
       blogElems.forEach(function(element) {
         element.classList.add("hidden");
       });
 
-      // Removed: visibleYears logic
+      // Show only matching posts
       result.data.items.forEach(function(item) {
         item.element.classList.remove("hidden");
-        // Removed: Year visibility logic
       });
-
-      // Removed: Hiding and showing year elements logic
 
       // show or hide notification about filtered posts
       if (Object.keys(query.filters).length || query.query) {

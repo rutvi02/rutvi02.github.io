@@ -4,7 +4,7 @@ This file creates the HTML block for a single post on the blog index page,
 including the data attribute required for the client-side search.
 {% endcomment %}
 
-<div class="blog-post" data-post='{{ include.post | jsonify | escape }}'>
+<div class="blog-item" data-post='{{ include.post | jsonify | escape }}'>
   <h3>
     <a class="post-link" href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a>
   </h3>
