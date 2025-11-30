@@ -10,7 +10,12 @@ layout: default
       Published on {{ page.date | date: "%b %-d, %Y" }}
       {% if page.author %} • {{ page.author }}{% endif %}
       {% if page.meta %} • {{ page.meta }}{% endif %}
-      {% if page.tags %} • {{ page.tags }}{% endif %}
+      {% if page.tags %}
+        • Tags:
+        {% for tag in page.tags %}
+          <span class="tag-item">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      {% endif %}
       </p>
   </header>
 
