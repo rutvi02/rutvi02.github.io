@@ -7,7 +7,7 @@ Displays post details and links the tags for categorization.
   <h3>
     <a class="post-link" href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a>
   </h3>
-  <span class="post-meta" title="{{ include.post.date | date: "%b %-d Y" }}">{{ include.post.date | date: "%b %-d" }} <span class="meta-year">{{ include.post.date | date: "%Y" }}</span></span>
+  <span class="post-meta" title="{{ include.post.date | date: '%b %-d Y' }}">{{ include.post.date | date: "%b %-d" }} <span class="meta-year">{{ include.post.date | date: "%Y" }}</span></span>
   
   {% if include.post.description %}<p class="post-subtitle">{{ include.post.description }}</p>{% endif %}
   
