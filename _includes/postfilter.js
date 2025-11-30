@@ -1,47 +1,47 @@
 document.addEventListener("DOMContentLoaded", function() {
   
-  // The immediate execution function is kept inside the DOMContentLoaded wrapper
   (function() {
     
-    // 1. Selectors and Data Gathering
-    // These selectors are now safe because the DOM is fully loaded.
-    var blogElems = document.querySelectorAll(".blog-post"); 
+    // --- 1. Selectors and Data Gathering ---
+    // CHANGED: Selectors for blog elements and data attribute
+    var blogElems = document.querySelectorAll(".blog-post");
     var yearElems = document.querySelectorAll(".year");
 
     var clearElem = document.getElementById("clear-filters");
-    var ftSearch = document.getElementById("ft-search");
+    // Removed: highlightElem (Since we removed the highlight feature)
 
     var data = [];
     var allYears = new Set();
 
     blogElems.forEach(function(element) {
-      // Reading data from the data-post attribute
+      // CHANGED: Reading from the data-post attribute
       var item = JSON.parse(element.getAttribute("data-post")); 
 
-      allYears.add(item.date.substring(0, 4)); 
+      // Get the year from the post date string
+      allYears.add(item.date.substring(0, 4));
 
       item.element = element;
-      
-      // CRITICAL: Ensure tags is an array for ItemsJS, even if empty or a single string
+
+      // CRITICAL FIX: Ensure 'tags' property is an array for ItemsJS
       item.tags = Array.isArray(item.tags) ? item.tags : (item.tags ? [item.tags] : []);
       
       data.push(item);
     });
 
-    // 2. ItemsJS Configuration
+    // --- 2. ItemsJS Configuration ---
     var engine = itemsjs(data, {
       aggregations: {
-        // ONLY using tags for filtering, as requested
-        tags: { 
-          size: 10 
+        // ONLY using tags, matching your blog structure
+        tags: {
+          size: 10
         }
       },
-      // FINAL CONFIG: Only searching the title and tags fields
-      searchableFields: ["tags", "title"] 
+      // Searching title and tags, as requested
+      searchableFields: ["tags", "title"]
+      // Removed: authors, awards, etc.
     });
 
-    // 3. Filtering and Search Logic (Unchanged core logic)
-
+    // --- 3. URL Hash & Initial Query ---
     var hash = decodeURIComponent(window.location.hash.substr(1));
 
     var result = hash.split('&').reduce(function (res, item) {
@@ -58,10 +58,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var query = { filters: result };
 
+    // --- 4. setAggs Function (Renders Filters) ---
     function setAggs(aggs) {
+      // Since we only have one facet (#tags), this loop still works.
       document.querySelectorAll("#facets > .facet").forEach(function(facet) {
         var id = facet.getAttribute("id");
-        
+
+        // Skip if the aggregation ID doesn't exist (e.g., if a facet HTML exists but isn't configured in ItemsJS)
         if (!aggs[id]) return; 
 
         var buckets = aggs[id].buckets;
@@ -113,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (bucket.in_query) {
               child.classList.add("in-query");
 
+              // remove filter
               child.onclick = function() {
                 query.filters[id].splice(
                   query.filters[id].indexOf(bucket.key),
@@ -124,6 +128,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 search(query);
               };
             } else {
+              // add to filter
               child.onclick = function() {
                 if (query.filters[id]) {
                   query.filters[id].push(bucket.key);
@@ -140,6 +145,8 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     }
 
+    // --- 5. Search Input Handler ---
+    var ftSearch = document.getElementById("ft-search");
     ftSearch.oninput = function() {
       var val = ftSearch.value;
 
@@ -152,6 +159,7 @@ document.addEventListener("DOMContentLoaded", function() {
       search(query);
     }
 
+    // --- 6. Main Search Function ---
     function search(query) {
       console.time("Search");
 
@@ -159,12 +167,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
       setAggs(result.data.aggregations);
 
+      // CHANGED: Use blogElems for count and iteration
       var counter = blogElems.length - result.data.items.length;
 
       document.getElementById("count_hidden").innerText = counter;
       document.getElementById("count_total").innerText = blogElems.length;
 
-      blogElems.forEach(function(element) { 
+      blogElems.forEach(function(element) {
         element.classList.add("hidden");
       });
 
@@ -183,25 +192,31 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       });
 
+      // show or hide notification about filtered papers
       if (Object.keys(query.filters).length || query.query) {
         clearElem.classList.remove("hidden");
       } else {
         clearElem.classList.add("hidden");
       }
+      
+      // Removed highlight checkbox logic
 
       console.timeEnd("Search");
     }
-    
+
+    // Removed highlightElem.onchange function
+
+    // --- 7. Clear Filters Handler ---
     clearElem.onclick = function() {
       query = { filters: {} };
       ftSearch.value = "";
       search(query);
     };
 
-    // Initial search execution
+    // Initial search and setup
     search(query);
 
-    // Unhide the facets and clear filters area once everything is set up
     document.getElementById("facets").classList.remove("hidden");
+    // Removed: document.getElementById("only-highlight").classList.remove("hidden");
   })();
 });

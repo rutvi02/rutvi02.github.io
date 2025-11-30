@@ -2,8 +2,9 @@
 layout: post
 title: "Causal Counterfactual Forecasting"
 description: Causal Inference x Machine Learning
-
-tags: Machine Learning
+tags:
+  - Machine Learning
+  - Statistics
 
 ---
 
