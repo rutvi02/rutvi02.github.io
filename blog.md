@@ -4,8 +4,6 @@ permalink: /blog/
 title: Blog posts
 ---
 
-<h1>{{ page.title }}</h1>
-
 <!-- TAG FILTER BAR -->
 <div class="tags">
   <a href="{{ page.url | relative_url }}">All</a>
