@@ -15,11 +15,11 @@ title: CV
     <p>
       Master's in CS with focus on ML/AI  <br/>
     </p>
-    <p>
+    <!-- <p> -->
       <!-- Resume & Transcript Link -->
       <!-- <a href="" style="color: #b00; text-decoration: underline" target="_blank">Resume</a> <br/> -->
-      <a href="https://drive.google.com/file/d/1DFjUybWp3I8sg37zfwiE4AEWwcSTxLGd/view?usp=sharing" style="color: #b00; text-decoration: underline" target="_blank">Transcript</a> (GPA: 4.0/4.0)
-    </p>
+      <!-- <a href="https://drive.google.com/file/d/1DFjUybWp3I8sg37zfwiE4AEWwcSTxLGd/view?usp=sharing" style="color: #b00; text-decoration: underline" target="_blank">Transcript</a> (GPA: 4.0/4.0) -->
+    <!-- </p> -->
   </div>
   <div>
     <p class="right-align">
@@ -112,19 +112,19 @@ I want to solve impactful real-world problems using Machine Learning, and AI.
 {% endfor %} -->
 
 
-<h2>Publications <a href="{{ '/publications/' | absolute_url }}"></a></h2>
+<!-- <h2>Publications <a href="{{ '/publications/' | absolute_url }}"></a></h2>
 
 {% assign sorted_pubs = site.publications | reverse %}
 
-<!-- {% assign types = "Conference|Journal|Book Chapter|Demo|Workshop|Thesis" | split: "|" %} -->
-{% assign types = "Preprint|Journal|Conference" | split: "|" %}
+{% assign types = "Conference|Journal|Book Chapter|Demo|Workshop|Thesis" | split: "|" %}
+<{% assign types = "Preprint|Journal|Conference" | split: "|" %}
 {% for type in types %}
   {% assign counter = 1 %}
   {% for pub in sorted_pubs %}
     {% if pub.type[0] == type %}
       {% assign counter = counter | plus: 1 %}
-    {% endif %}
-  {% endfor %}
+     {% endif %} -->
+  <!-- {% endfor %}
 
   <h3 class="pub-type">
     {{ type }}
@@ -144,8 +144,8 @@ I want to solve impactful real-world problems using Machine Learning, and AI.
             <div class="extra-links">
             {% if pub.pdf %}
               <a href="{{ pub.pdf }}">
-                <i class="far fa-file-pdf" aria-hidden="true"></i> PDF
-              </a>
+                <i class="far fa-file-pdf" aria-hidden="true"></i> PDF -->
+              <!-- </a>
             {% endif %}
             {% if pub.link %}
               <a href="{{ pub.link }}">
@@ -179,7 +179,7 @@ I want to solve impactful real-world problems using Machine Learning, and AI.
       </article>
     {% endif %}
   {% endfor %}
-{% endfor %}
+{% endfor %} -->
 
 
 <!-- <h2>Patents</h2>
