@@ -1,20 +1,22 @@
-- title: NYU Center for Data Science
+- title: Florida Institute of Technology
   courses:
-    - title: Natural Language Processing
-    - title: Deep Learning
+    - title: Artificial Intelligence
+    - title: Analysis of Algorithms
     - title: Machine Learning
+    - title: Applied Discrete Mathematics
+    - title: Independent Research (AI text detection)
+    - title: Thesis (Early breast cancer detection using NMF)
     - title: Big Data
-    - title: Causal Inference
-    - title: Probability & Statistics for Data Science
-    - title: Optimization & Computational Linear Algebra
-    - title: Introduction to Data Science
+    - title: Machine Learning Engineering
+    - title: Advanced Artificial Intelligence
+    - title: Computer Networks
 
-- title: BITS Pilani
+- title: Adani University 
   courses:
-    - title: Data Mining
+    - title: Data Mining & Business Intelligence
     - title: Machine Learning
     - title: Neural Networks and Fuzzy Logic
-    - title: Engineering Optimization 
+    - title: Data Structures and Algorithms 
     - title: Probability & Statistics
     - title: Multivariate Calculus
     - title: Linear Algebra

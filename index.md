@@ -12,7 +12,7 @@ class: home
 
 I'm an AI/ML engineer focused on **building and understanding intelligent systems.** During my Master's at [Florida Institute of Technology](https://www.fit.edu/), I published  and presented research on medical imaging with NMF, prototyped graph-based RAG systems for scientific literature, implemented **ML algorithms from scratch** in pure Python to grasp their foundations, and taught data structures and algorithms to help others develop computational intuition.
 
-Currently, I lead AI/ML development at a startup, building RAG pipelines, embedding based systems, and probabilistic record linkage solutions. My weekends are for exploring what I don't yet understand: I've built an embedding visualization tool to investigate model representations, implemented transformers and self-attention from scratch to grasp the architecture deeply, and prototyped agentic systems to experiment with multi-step reasoning.
+Currently, I lead AI/ML development at a startup, designing and deploying **RAG systems with robust evaluation frameworks** and continuous monitoring pipelines, alongside embedding-based architectures and probabilistic record linkage solutions. My weekends are for exploring and building projects that interests me: I've built an embedding visualization tool to investigate model representations, implemented transformers and self-attention from scratch to grasp the architecture deeply, and built an multi-agent workflow with tools using LLMs to answer math and physics problems.
 
 I'm particularly interested in **AI interpretability, safety, and evaluation.** I want to work on making models more transparent, reliable, and aligned, contributing to research that shapes how we build trustworthy AI systems.
 
