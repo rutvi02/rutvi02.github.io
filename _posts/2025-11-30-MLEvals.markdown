@@ -6,23 +6,24 @@ tags: [Machine Learning]
 
 ---
 
-How can a decision-maker forecast the **causal impact of interventions** over time? This question lies at the intersection of Causal Inference and Machine Learning.
+Machine Learning Evaluation (ML Evals) is the systematic process of measuring how well a model performs on a given task. It is the bridge between training a model and deploying it, ensuring that the system is accurate, reliable, and safe for real-world use.
 
-For example, an e-commerce business may be interested in predicting the future sales of its products under a sequence of different pricing strategies. A quant trader could benefit from forecasting potential outcomes under different trading strategies. The ability to answer these questions can aid prospective and retrospective **what-if analyses**.
- 
-This semester, I took a course on Causal Inference that taught me the techniques and assumptions under which we can perform causal analysis on randomized, observational, and quasi-experimental studies. For my final project, I participated in the American Causal Inference Conference (ACIC 2023) data challenge and delved deeper into the problem of Causal Counterfactual Forecasting. Here are the key contributions of my work.
+Why ML Evals Matter
+Without a robust evaluation framework, deploying AI is guesswork. Proper evals help you:
+Measure Generalization: Ensure the model works on new, unseen data, not just what it memorized during training.
+Identify Bias: Catch systematic errors that might unfairly impact specific demographic groups.Drive Iteration: Provide a "north star" metric (like Accuracy or F1 Score) to determine if a new model version is truly better.
+Ensure Safety: Evals are critical for detecting "hallucinations" or harmful outputs in generative models.
 
-<picture>
-<img src="{{ 'images/counterfactual_forecasting.jpg' | relative_url }}" alt="Deep Thinking on the Brooklyn Bridge">
-</picture>
+1. Traditional ML Metrics
+For standard tasks like classification or predicting prices, we use objective, mathematical formulas.
+Metric          Best For...              What it Measures
+Accuracy        Balanced datasets         The percentage of total correct predictions.
+Precision      Avoiding False Positives   "Of all predicted positives, how many were actually correct?"
+Recall         Avoiding False Negatives   "Of all actual positives, how many did we successfully catch?"
+F1-Score       Imbalanced datasets        The harmonic mean of Precision and Recall.
+RMSERegression  The average magnitude of error (penalizes large errors heavily).The Confusion Matrix is the foundational tool for these metrics, showing a grid of True Positives, True Negatives, False Positives, and False Negatives.
 
-1. **Evaluated the Counterfactual Recurrent Network (CRN) in a business setting.**
-Most recent methods, including the CRN, have been evaluated on a simulated tumor growth dataset or data in the healthcare domain. In this work, I evaluated the model on the ACIC challenge dataset, which mirrors data in an e-commerce business setting.
-
-2. **General purpose implementation of CRN to work with any time-series dataset.**
-The open-source implementation of CRN only works with the simulated tumor dataset. Here I provide a modified script and data processing notebook to repurpose your data to work with CRN.
-
-3. **Plausibility analysis of causal assumptions.**
-While most studies on counterfactual forecasting list the necessary assumptions for causal claims, the plausibility of these assumptions in real-world settings is not discussed. In this work, I discuss these assumptions in the context of the e-commerce example. Although these methods adjust for time-confounding bias that supervised machine learning methods do not, they make strong assumptions that may not hold in practice. It is therefore prudent to use the term "causal" with caution when describing the predictions of these models.
-
-Check out the [full paper](https://github.com/sargun-nagpal/Causal-Counterfactual-Forecasting-ACIC2023/blob/main/Report.pdf) and [repo](https://github.com/sargun-nagpal/Causal-Counterfactual-Forecasting-ACIC2023).
+2. Modern LLM Evaluation
+Evaluating Large Language Models (LLMs) is harder because there isn't always one "correct" answer. Modern evals have shifted toward more subjective and open-ended methods:
+LLM-as-a-Judge: Using a highly capable model (like Gemini 1.5 Pro or GPT-4o) to grade the outputs of a smaller model based on a rubric.Benchmarks: Standardized tests like MMLU (general knowledge) or HumanEval (coding) that allow researchers to compare models on a level playing field.
+Human-in-the-loop: The "gold standard" where experts manually review model responses for nuance, tone, and helpfulness.RAG Evals: Specific metrics like Faithfulness (is the answer grounded in the source?) and Answer Relevancy.

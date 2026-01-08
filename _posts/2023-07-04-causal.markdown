@@ -26,5 +26,3 @@ The open-source implementation of CRN only works with the simulated tumor datase
 
 3. **Plausibility analysis of causal assumptions.**
 While most studies on counterfactual forecasting list the necessary assumptions for causal claims, the plausibility of these assumptions in real-world settings is not discussed. In this work, I discuss these assumptions in the context of the e-commerce example. Although these methods adjust for time-confounding bias that supervised machine learning methods do not, they make strong assumptions that may not hold in practice. It is therefore prudent to use the term "causal" with caution when describing the predictions of these models.
-
-Check out the [full paper](https://github.com/sargun-nagpal/Causal-Counterfactual-Forecasting-ACIC2023/blob/main/Report.pdf) and [repo](https://github.com/sargun-nagpal/Causal-Counterfactual-Forecasting-ACIC2023).
