@@ -1,12 +1,16 @@
-/* Blog tag filter bar – aligned, even layout */
+/* Blog tag filter bar – all categories grouped on one side */
 .blog-tags {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem 0.75rem;
   margin-bottom: 1rem;
   padding: 0.75rem 0;
   border-bottom: 1px solid $grey-color-light;
+
+  .blog-tags-inner {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    max-width: 100%;
+  }
 
   .blog-tag {
     display: inline-flex;

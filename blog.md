@@ -6,13 +6,15 @@ title: Blog posts
 
 <!-- TAG FILTER BAR -->
 <nav class="blog-tags" aria-label="Filter posts by category">
-  <a class="blog-tag" href="{{ page.url | relative_url }}">All</a>
-  {% assign all_tags = site.tags | sort %}
-  {% for tag in all_tags %}
-    <a class="blog-tag" href="{{ page.url | relative_url }}?tag={{ tag[0] | escape }}">
-      {{ tag[0] }}
-    </a>
-  {% endfor %}
+  <div class="blog-tags-inner">
+    <a class="blog-tag" href="{{ page.url | relative_url }}">All</a>
+    {% assign all_tags = site.tags | sort %}
+    {% for tag in all_tags %}
+      <a class="blog-tag" href="{{ page.url | relative_url }}?tag={{ tag[0] | escape }}">
+        {{ tag[0] }}
+      </a>
+    {% endfor %}
+  </div>
 </nav>
 
 <hr>
@@ -83,7 +85,7 @@ title: Blog posts
       });
 
       // Highlight active tag link
-      document.querySelectorAll(".blog-tags .blog-tag").forEach(function (a) {
+      document.querySelectorAll(".blog-tags-inner .blog-tag").forEach(function (a) {
         try {
           var linkTag = new URL(a.href).searchParams.get("tag");
           if (linkTag === tag) a.classList.add("active");
