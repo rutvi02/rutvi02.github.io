@@ -39,7 +39,7 @@ title: Blog
     {% endif %}
 
     <div class="post-block post-item"
-         data-tags="{{ post.tags | join:' ' }}">
+         data-tags="{{ post.tags | join: '|' }}">
       <h3>
         <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
       </h3>
@@ -61,16 +61,32 @@ title: Blog
   (function () {
     const baseUrl = window.location.pathname;
     const params = new URLSearchParams(window.location.search);
-    const selectedTags = params.getAll("tag");
+    // Dedupe and preserve order (e.g. ?tag=a&tag=a -> ["a"])
+    const selectedTags = Array.from(new Set(params.getAll("tag"))).filter(Boolean);
     const postItems = document.querySelectorAll(".post-item");
     const yearGroups = document.querySelectorAll(".year-group");
     const tagLinks = document.querySelectorAll(".blog-tags-inner .blog-tag[data-tag]");
 
+    function normalize(s) { return (s || "").trim().toLowerCase(); }
+    function postTagList(el) {
+      var raw = (el.getAttribute("data-tags") || "").trim();
+      if (!raw) return [];
+      return raw.split("|").map(function (s) { return s.trim(); }).filter(Boolean);
+    }
+    function tagMatches(postTags, selectedTags) {
+      if (selectedTags.length === 0) return true;
+      var postNorm = postTags.map(normalize);
+      return selectedTags.some(function (t) {
+        var tn = normalize(t);
+        return postNorm.indexOf(tn) !== -1;
+      });
+    }
+
     function applyFilter() {
       const tags = selectedTags;
       postItems.forEach(function (p) {
-        const postTags = (p.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
-        const show = tags.length === 0 || tags.some(function (t) { return postTags.indexOf(t) !== -1; });
+        var postTags = postTagList(p);
+        var show = tagMatches(postTags, tags);
         p.style.display = show ? "" : "none";
         if (show) p.classList.remove("hidden-by-filter"); else p.classList.add("hidden-by-filter");
       });
@@ -80,9 +96,11 @@ title: Blog
       });
       tagLinks.forEach(function (a) {
         var t = a.getAttribute("data-tag");
-        if (tags.indexOf(t) !== -1) a.classList.add("active"); else a.classList.remove("active");
+        var isActive = tags.some(function (st) { return normalize(st) === normalize(t); });
+        if (isActive) a.classList.add("active"); else a.classList.remove("active");
       });
-      document.querySelector(".blog-tag-all").classList.toggle("active", tags.length === 0);
+      var allBtn = document.querySelector(".blog-tag-all");
+      if (allBtn) allBtn.classList.toggle("active", tags.length === 0);
     }
 
     applyFilter();
@@ -91,9 +109,12 @@ title: Blog
       a.addEventListener("click", function (e) {
         e.preventDefault();
         var tag = a.getAttribute("data-tag");
-        var next = selectedTags.indexOf(tag) === -1
-          ? selectedTags.concat([tag])
-          : selectedTags.filter(function (t) { return t !== tag; });
+        if (!tag) return;
+        var tagNorm = normalize(tag);
+        var already = selectedTags.some(function (t) { return normalize(t) === tagNorm; });
+        var next = already
+          ? selectedTags.filter(function (t) { return normalize(t) !== tagNorm; })
+          : selectedTags.concat([tag]);
         var query = next.length ? "?" + next.map(function (t) { return "tag=" + encodeURIComponent(t); }).join("&") : "";
         window.location.replace(baseUrl + query);
       });
