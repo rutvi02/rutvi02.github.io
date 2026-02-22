@@ -1,8 +1,13 @@
 ---
 layout: page
 permalink: /blog/
-title: Blog posts
+title: Blog
 ---
+
+<div class="blog-intro">
+  <h1 class="blog-intro-title">{{ page.title }}</h1>
+  <p class="blog-intro-text">Thoughts on AI, anything I find interesting, and life in general.</p>
+</div>
 
 <!-- TAG FILTER BAR -->
 <nav class="blog-tags" aria-label="Filter posts by category">
@@ -16,8 +21,6 @@ title: Blog posts
     {% endfor %}
   </div>
 </nav>
-
-<hr>
 
 <!-- POSTS LIST -->
 <div class="post-list">

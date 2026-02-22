@@ -1,8 +1,30 @@
+/* Blog intro – title and tagline */
+.blog-intro {
+  margin-bottom: 1.5rem;
+  padding-bottom: 0;
+
+  .blog-intro-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0 0 0.35em 0;
+    color: $dark-text-color;
+    letter-spacing: -0.02em;
+  }
+
+  .blog-intro-text {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: $grey-color;
+    max-width: 28em;
+  }
+}
+
 /* Blog tag filter bar – all categories grouped on one side */
 .blog-tags {
-  margin-bottom: 1rem;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid $grey-color-light;
+  margin-bottom: 1.25rem;
+  padding: 0.6rem 0;
+  border-bottom: none;
 
   .blog-tags-inner {
     display: inline-flex;

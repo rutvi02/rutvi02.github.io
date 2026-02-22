@@ -32,7 +32,7 @@
 - title: Safe Circuits — Interpretability for AI Safety Classifiers
   code: https://github.com/rutvi02/safecircuits
   image: safecircuits.png
-  description: "Applied mechanistic interpretability (token attribution, layer ablation, attention analysis, and Sparse Autoencoders) to LlamaGuard-7B + NVIDIA Aegis safety classifier to audit and explain safe/unsafe decisions. Built an interactive viz app for prompt-level exploration of token contributions across transformer layers."
+  description: "Mechanistic interpretability on LlamaGuard-7B + NVIDIA Aegis — token attribution, layer ablation, and SAEs to audit why the model flags content as safe or unsafe."
   highlight: 1
 
 - title: Improving LLM Responses for Healthcare Using GraphRAG 
