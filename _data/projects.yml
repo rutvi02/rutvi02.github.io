@@ -32,23 +32,23 @@
 - title: Improving LLM Responses for Healthcare Using GraphRAG 
   code: https://github.com/rutvi02/GraphRAG-for-healthcare
   # paper: /papers/2023-big_data.pdf
-  image: recsys.png
+  image: graphrag.png
   description: "Designed a context-aware LLM for healthcare applications, reducing hallucinations using Graph-based Retrieval Augmented Generation (GraphRAG) and incorporating knowledge graphs using approx 30gb of data."
 
 
 - title: "Genetic Optimization of Fuzzy Inference Systems for Enhanced Interpretability in Machine Learning"
-  code: https://github.com/rutvi02
-  # paper: /papers/2022-NYU_1001.pdf
+  code: https://github.com/rutvi02/Fuzzy-Inferernce-Systems
+  paper: /papers/ML_report.pdf
   # article: https://www.linkedin.com/posts/sargun-nagpal_github-sharad5kaggle-data-science-ml-survey-analysis-activity-7015899359607201792-6gwm?utm_source=share&utm_medium=member_desktop
-  image: stonks.jpg
+  image: fuzzy.png
   description: "This project aims to bridge this gap by optimizing fuzzy inference systems using genetic algorithm. The primary goal is to enhance the interpretability of traditional machine learning models while preserving or even improving their predictive accuracy."
   highlight: 2
 
 
 - title: FlightMate
   code: https://github.com/rutvi02/FlightMate
-  paper: /papers/2021-strainflow.pdf
-  image: strainflow.jpg
+  # paper: /papers/2021-strainflow.pdf
+  image: flightmate.png
   description: "Your AI companion for all flight related queries"
   highlight: 3
 
