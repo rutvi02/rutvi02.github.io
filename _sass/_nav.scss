@@ -1,6 +1,8 @@
 .page-header {
   border-top: 4px solid $brand-color;
-  background-color: $header-background;
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 0.75rem 0;
   margin-bottom: 2.5rem;
   box-shadow: $shadow-sm;
