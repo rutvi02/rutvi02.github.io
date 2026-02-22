@@ -8,6 +8,7 @@
     display: inline-flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: flex-start;
     gap: 0.5rem 0.75rem;
     max-width: 100%;
   }
@@ -19,6 +20,7 @@
     min-height: 2rem;
     padding: 0.25rem 0.85rem;
     font-size: 0.875rem;
+    font-weight: normal;
     line-height: 1.4;
     text-decoration: none;
     color: $text-color;
@@ -37,7 +39,7 @@
       background: $brand-color;
       color: #fff;
       border-color: $brand-color;
-      font-weight: 500;
+      /* keep font-weight same as others so pill width doesn't change and alignment stays fixed */
     }
   }
 }
