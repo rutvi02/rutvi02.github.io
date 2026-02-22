@@ -9,13 +9,13 @@ title: Blog
   <p class="blog-intro-text">Thoughts on AI, anything I find interesting, and life in general.</p>
 </div>
 
-<!-- TAG FILTER BAR -->
+<!-- TAG FILTER BAR: multi-select (click to add/remove), "All" clears -->
 <nav class="blog-tags" aria-label="Filter posts by category">
   <div class="blog-tags-inner">
-    <a class="blog-tag" href="{{ page.url | relative_url }}">All</a>
+    <a class="blog-tag blog-tag-all" href="{{ page.url | relative_url }}">All</a>
     {% assign all_tags = site.tags | sort %}
     {% for tag in all_tags %}
-      <a class="blog-tag" href="{{ page.url | relative_url }}?tag={{ tag[0] | escape }}">
+      <a class="blog-tag" href="{{ page.url | relative_url }}?tag={{ tag[0] | url_encode }}" data-tag="{{ tag[0] | escape }}">
         {{ tag[0] }}
       </a>
     {% endfor %}
@@ -52,13 +52,6 @@ title: Blog
       {% if post.description %}
         <p class="post-subtitle">{{ post.description }}</p>
       {% endif %}
-
-      {% if post.tags %}
-        • Tags:
-        {% for tag in post.tags %}
-          <span class="tag-item">{{ tag }}</span>{% unless forloop.last %}, {% endunless %}
-        {% endfor %}
-      {% endif %}
     </div>
   {% endfor %}
   </div>
@@ -66,34 +59,44 @@ title: Blog
 
 <script>
   (function () {
+    const baseUrl = window.location.pathname;
     const params = new URLSearchParams(window.location.search);
-    const tag = params.get("tag");
+    const selectedTags = params.getAll("tag");
     const postItems = document.querySelectorAll(".post-item");
     const yearGroups = document.querySelectorAll(".year-group");
+    const tagLinks = document.querySelectorAll(".blog-tags-inner .blog-tag[data-tag]");
 
-    if (tag) {
+    function applyFilter() {
+      const tags = selectedTags;
       postItems.forEach(function (p) {
-        if (!p.getAttribute("data-tags").includes(tag)) {
-          p.style.display = "none";
-          p.classList.add("hidden-by-filter");
-        }
+        const postTags = (p.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
+        const show = tags.length === 0 || tags.some(function (t) { return postTags.indexOf(t) !== -1; });
+        p.style.display = show ? "" : "none";
+        if (show) p.classList.remove("hidden-by-filter"); else p.classList.add("hidden-by-filter");
       });
-
-      // Hide year groups that have no visible posts
       yearGroups.forEach(function (group) {
         var visible = group.querySelectorAll(".post-item:not(.hidden-by-filter)").length;
-        if (visible === 0) {
-          group.style.display = "none";
-        }
+        group.style.display = visible === 0 ? "none" : "";
       });
-
-      // Highlight active tag link
-      document.querySelectorAll(".blog-tags-inner .blog-tag").forEach(function (a) {
-        try {
-          var linkTag = new URL(a.href).searchParams.get("tag");
-          if (linkTag === tag) a.classList.add("active");
-        } catch (e) {}
+      tagLinks.forEach(function (a) {
+        var t = a.getAttribute("data-tag");
+        if (tags.indexOf(t) !== -1) a.classList.add("active"); else a.classList.remove("active");
       });
+      document.querySelector(".blog-tag-all").classList.toggle("active", tags.length === 0);
     }
+
+    applyFilter();
+
+    tagLinks.forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        var tag = a.getAttribute("data-tag");
+        var next = selectedTags.indexOf(tag) === -1
+          ? selectedTags.concat([tag])
+          : selectedTags.filter(function (t) { return t !== tag; });
+        var query = next.length ? "?" + next.map(function (t) { return "tag=" + encodeURIComponent(t); }).join("&") : "";
+        window.location.replace(baseUrl + query);
+      });
+    });
   })();
 </script>
