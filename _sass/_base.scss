@@ -125,10 +125,11 @@ ul.no-list {
 a {
   color: $link-color;
   text-decoration: none;
+  transition: color 0.2s ease;
 
   &:hover {
-      opacity: .8;
-      text-decoration: underline;
+    color: $link-hover-color;
+    text-decoration: underline;
   }
 }
 
@@ -138,15 +139,17 @@ a {
  * Blockquotes
  */
 blockquote {
-  color: $grey-color;
-  border-left: 4px solid $grey-color-lightest;
+  color: $grey-color-dark;
+  border-left: 4px solid $brand-color;
   padding-left: $spacing-unit / 2;
-  font-size: 18px;
-  letter-spacing: -1px;
+  font-size: 1.1rem;
   font-style: italic;
+  background: $grey-color-lightest;
+  padding: $spacing-unit / 2 $spacing-unit / 2 $spacing-unit / 2 ($spacing-unit / 2 + 4px);
+  border-radius: 0 $radius-sm $radius-sm 0;
 
   > :last-child {
-      margin-bottom: 0;
+    margin-bottom: 0;
   }
 }
 

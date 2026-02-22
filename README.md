@@ -1,5 +1,8 @@
 # Website [![Build Status](https://travis-ci.org/domoritz/domoritz.github.io.svg?branch=master)](https://travis-ci.org/domoritz/domoritz.github.io)
 
+## Customizing the design
+
+All design tokens (colors, spacing, fonts, shadows, border radius) live in **`styles.scss`** at the top of the file. Change those variables to update the look site-wide without editing individual SCSS partials. Page-specific styles are in **`_sass/`**: `_home.scss`, `_blog.scss`, `_nav.scss`, `_footer.scss`, etc.
 
 ## Write
 

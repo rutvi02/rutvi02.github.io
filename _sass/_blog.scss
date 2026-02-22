@@ -25,7 +25,7 @@
     text-decoration: none;
     color: $text-color;
     background: $grey-color-light;
-    border-radius: 6px;
+    border-radius: $radius-sm;
     border: 1px solid darken($grey-color-light, 6%);
     white-space: nowrap;
     transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;

@@ -1,79 +1,96 @@
 .home {
   h1 {
     margin-top: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: $dark-text-color;
+    letter-spacing: -0.02em;
   }
 
   h2 {
-    font-size: 1.5em;
+    font-size: 1.4rem;
+    font-weight: 600;
     border-bottom: none;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: $dark-text-color;
   }
 
   .columns {
     display: flex;
     flex-direction: row;
+    gap: $spacing-unit;
+    align-items: flex-start;
 
     .intro {
       flex: 1;
-      font-size: 1.1em;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: $text-color;
     }
 
     .me {
-      margin-left: $spacing-unit;
+      margin-left: 0;
       margin-bottom: $spacing-unit;
-
-      font-size: 0.9em;
+      font-size: 0.9rem;
       text-align: center;
+      flex-shrink: 0;
 
       picture, img {
-        width: 220px;
-        height: 220px;
-        border-radius: 6px;
+        width: 200px;
+        height: 200px;
+        border-radius: $radius-md;
+        box-shadow: $shadow-md;
+        object-fit: cover;
       }
 
       ul {
-        margin-top: 16px;
+        margin-top: 1rem;
       }
     }
   }
 
   .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
     color: $brand-color;
-    padding: 6px 16px;
-    border-radius: 3px;
-    border: 1px solid lighten($brand-color, 20%);
+    padding: 0.5rem 1rem;
+    border-radius: $radius-sm;
+    border: 1px solid rgba($brand-color, 0.35);
+    font-weight: 500;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 
     &:hover {
-      opacity: 1;
       text-decoration: none;
-      background-color: lighten($brand-color, 50%);
+      background: rgba($brand-color, 0.08);
+      border-color: $brand-color;
+      color: $brand-color-dark;
     }
   }
 
   .featured-projects {
-    font-size: 0.9em;
+    font-size: 0.95rem;
     display: flex;
     flex-direction: row;
-    margin-bottom: 1.5em;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
 
     .project {
       flex-grow: 1;
       flex-basis: 0;
-
       display: flex;
       flex-direction: column;
-
-      &:not(:last-child) {
-        margin-right: 16px;
-      }
-
-      border-radius: 3px;
-      padding: 16px;
-      border: 1px solid #ddd;
-
-      transition: box-shadow 0.2s ease;
+      border-radius: $radius-md;
+      padding: 1.25rem;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      background: #fff;
+      box-shadow: $shadow-sm;
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
 
       &:hover {
-        box-shadow: #aaa 2px 2px 11px;
+        box-shadow: $shadow-hover;
+        border-color: rgba($brand-color, 0.2);
       }
 
       .spacer {
@@ -98,10 +115,11 @@
         width: 100%;
         height: 0;
         padding-top: 60%;
-        border: 1px solid #f1f1f1;
+        border-radius: $radius-sm;
+        border: 1px solid $grey-color-lightest;
         background-size: cover;
         background-position: top left;
-        transition: background 1.5s;
+        transition: background-position 1s ease;
 
         &:hover {
           background-position: bottom right;
@@ -120,16 +138,20 @@
   }
 
   .featured-publications {
-    font-size: 0.95em;
-    margin-bottom: 1.5em;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
 
     .publication {
-      margin-bottom: 0.7em;
+      margin-bottom: 0.75rem;
       display: block;
       color: $text-color;
+      padding: 0.5rem 0;
+      border-radius: $radius-sm;
+      transition: background 0.2s ease;
 
       &:hover {
         text-decoration: none;
+        background: rgba($brand-color, 0.04);
       }
 
       .fa-trophy {

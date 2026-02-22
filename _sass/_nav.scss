@@ -1,7 +1,9 @@
 .page-header {
-  border-top: 12px solid $brand-color; 
-  padding-top: 6px; 
-  margin-bottom: 40px;
+  border-top: 4px solid $brand-color;
+  background-color: $header-background;
+  padding: 0.75rem 0;
+  margin-bottom: 2.5rem;
+  box-shadow: $shadow-sm;
 }
 
 nav {
@@ -10,38 +12,36 @@ nav {
   flex-flow: row wrap;
   line-height: 36px;
   justify-content: space-between;
+  gap: 0.5rem;
 
   & > *:last-child {
     margin-left: auto;
   }
 
   a {
-    color: #333;
-    padding: 12px 0.3em 0 0.3em;
-    margin: 0 0.3em;
+    color: $dark-text-color;
+    padding: 0.5rem 0.6em;
+    margin: 0;
     display: inline-block;
     text-decoration: none;
-    font-weight: bold;
-
-    opacity: 0.75;
-    border-bottom: 1px solid transparent;
-
-    transition: opacity 0.25s ease-in-out, border 0.25s ease-in-out;
+    font-weight: 500;
+    border-radius: $radius-sm;
+    opacity: 0.85;
+    border-bottom: 2px solid transparent;
+    transition: opacity 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 
     &:last-child {
-      padding-right: 0;
+      padding-right: 0.6em;
     }
     &.active {
-      border-bottom-color: #333;
+      border-bottom-color: $brand-color;
+      color: $brand-color;
       opacity: 1;
     }
     &:hover {
       text-decoration: none;
-
       opacity: 1;
-      border-bottom-color: #333;
-
-      transition: opacity 0.25s ease-in-out, border 0.25s ease-in-out;
+      border-bottom-color: $brand-color;
     }
   }
 
@@ -52,21 +52,28 @@ nav {
   }
 
   .site-title {
-    font-weight: 500;
-    margin-top: 8px;
+    font-weight: 600;
+    margin-top: 0;
     padding: 0;
     margin-left: 0;
     margin-right: $spacing-unit;
     flex: 0 0 auto;
-    font-size: 1.5em;
+    font-size: 1.35rem;
     border: none;
-
-    color: #333;
+    color: $dark-text-color;
     opacity: 1;
+    transition: color 0.2s ease;
 
     &:hover {
-      opacity: 0.75;
+      color: $brand-color;
     }
+  }
+
+  .site-title-icon {
+    vertical-align: middle;
+    margin-right: 0.35rem;
+    height: 1.6em;
+    width: auto;
   }
 }
 

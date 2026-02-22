@@ -1,15 +1,17 @@
 footer {
   padding: $spacing-unit 0;
-
   font-size: $small-font-size;
-
   background-color: $footer-background;
   color: $footer-text;
+  margin-top: auto;
 
   a {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
     &:hover {
-      opacity: 1;
+      opacity: 0.9;
+      text-decoration: underline;
     }
   }
 
