@@ -5,15 +5,15 @@ title: Blog posts
 ---
 
 <!-- TAG FILTER BAR -->
-<div class="tags">
-  <a href="{{ page.url | relative_url }}">All</a>
+<nav class="blog-tags" aria-label="Filter posts by category">
+  <a class="blog-tag" href="{{ page.url | relative_url }}">All</a>
   {% assign all_tags = site.tags | sort %}
   {% for tag in all_tags %}
-    <a href="{{ page.url | relative_url }}?tag={{ tag[0] | escape }}">
+    <a class="blog-tag" href="{{ page.url | relative_url }}?tag={{ tag[0] | escape }}">
       {{ tag[0] }}
     </a>
   {% endfor %}
-</div>
+</nav>
 
 <hr>
 
@@ -25,7 +25,11 @@ title: Blog posts
     {% assign currentdate = post.date | date: "%Y" %}
 
     {% if currentdate != date %}
-      <h2 id="y{{ currentdate }}" class="year">{{ currentdate }}</h2>
+      {% if date != nil %}
+        </div>
+      {% endif %}
+      <div class="year-group" data-year="{{ currentdate }}">
+        <h2 id="y{{ currentdate }}" class="year">{{ currentdate }}</h2>
       {% assign date = currentdate %}
     {% endif %}
 
@@ -52,24 +56,39 @@ title: Blog posts
       {% endif %}
     </div>
   {% endfor %}
+  </div>
 </div>
 
 <script>
-  const params = new URLSearchParams(window.location.search);
-  const tag = params.get("tag");
-  if (tag) {
-    const posts = document.querySelectorAll(".post-item");
-    posts.forEach(p => {
-      if (!p.getAttribute("data-tags").includes(tag)) {
-        p.style.display = "none";
-      }
-    });
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const tag = params.get("tag");
+    const postItems = document.querySelectorAll(".post-item");
+    const yearGroups = document.querySelectorAll(".year-group");
 
-    // Highlight active tag link
-    document.querySelectorAll(".tags a").forEach(a => {
-      if (a.href.includes(`tag=${tag}`)) {
-        a.classList.add("active");
-      }
-    });
-  }
+    if (tag) {
+      postItems.forEach(function (p) {
+        if (!p.getAttribute("data-tags").includes(tag)) {
+          p.style.display = "none";
+          p.classList.add("hidden-by-filter");
+        }
+      });
+
+      // Hide year groups that have no visible posts
+      yearGroups.forEach(function (group) {
+        var visible = group.querySelectorAll(".post-item:not(.hidden-by-filter)").length;
+        if (visible === 0) {
+          group.style.display = "none";
+        }
+      });
+
+      // Highlight active tag link
+      document.querySelectorAll(".blog-tags .blog-tag").forEach(function (a) {
+        try {
+          var linkTag = new URL(a.href).searchParams.get("tag");
+          if (linkTag === tag) a.classList.add("active");
+        } catch (e) {}
+      });
+    }
+  })();
 </script>

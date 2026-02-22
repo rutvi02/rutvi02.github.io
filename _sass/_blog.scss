@@ -1,4 +1,46 @@
+/* Blog tag filter bar – even layout */
+.blog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+
+  .blog-tag {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: $text-color;
+    background: $grey-color-light;
+    border-radius: 4px;
+    border: 1px solid darken($grey-color-light, 5%);
+    transition: background 0.15s ease, border-color 0.15s ease;
+
+    &:hover {
+      background: darken($grey-color-light, 5%);
+      border-color: darken($grey-color-light, 10%);
+    }
+
+    &.active {
+      background: $brand-color;
+      color: #fff;
+      border-color: $brand-color;
+    }
+  }
+}
+
 .post-list {
+  .year-group {
+    clear: both;
+    margin-bottom: $spacing-unit;
+
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+
   .year {
     font-size: 1.4rem;
     font-weight: normal;
