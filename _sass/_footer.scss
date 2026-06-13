@@ -2,13 +2,13 @@ footer {
   position: relative;
   padding: $spacing-unit * 2 0 $spacing-unit * 1.5;
   font-size: $small-font-size;
-  color: $footer-text;
+  color: $muted;
   margin-top: auto;
-  // soft dark gradient instead of a flat slab
+  // light, matching the theme: soft cream with faint logo-tinted glows
   background:
-    radial-gradient(120% 140% at 15% 0%, rgba($blue, 0.16), transparent 55%),
-    radial-gradient(120% 140% at 90% 0%, rgba($green, 0.14), transparent 55%),
-    linear-gradient(180deg, lighten($ink, 5%) 0%, $ink 60%);
+    radial-gradient(120% 150% at 12% 0%, rgba($blue, 0.10), transparent 55%),
+    radial-gradient(120% 150% at 92% 0%, rgba($green, 0.10), transparent 55%),
+    linear-gradient(180deg, #EEF1EC 0%, #F3EFE4 100%);
 
   // blue -> green accent line on top, echoing the RK logo
   &::before {
@@ -20,11 +20,11 @@ footer {
   }
 
   a {
-    color: rgba(255, 255, 255, 0.92);
+    color: $text-color;
     text-decoration: none;
     transition: color 0.2s $ease;
     &:hover {
-      color: $accent-2;
+      color: $accent;
       text-decoration: none;
     }
   }
@@ -41,7 +41,7 @@ footer {
   .footer-brand {
     font-family: $font-display;
     font-weight: 600;
-    color: #fff;
+    color: $dark-text-color;
     font-size: 1.05rem;
   }
 

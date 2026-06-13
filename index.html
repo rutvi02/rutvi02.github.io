@@ -18,48 +18,12 @@ title: Home
         and a camera.
       </p>
       <div class="hero-actions">
-        <a href="#work" class="btn btn-primary">See my work</a>
+        <a href="{{ '/projects/' | relative_url }}" class="btn btn-primary">See my work</a>
         <a href="#personal" class="btn btn-ghost">Beyond the code</a>
         <a href="{{ '/resume.pdf' | relative_url }}" class="btn btn-ghost">Résumé</a>
       </div>
     </div>
     <span class="hero-scroll">scroll ↓</span>
-  </section>
-
-  <!-- ============================ WORK ============================ -->
-  <section class="section" id="work">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2 class="section-title">Selected work</h2>
-        <span class="kicker">// data · AI · safety</span>
-        <a href="{{ '/projects/' | relative_url }}" class="section-link">All projects →</a>
-      </div>
-
-      <div class="work-grid">
-        {% assign projects = site.data.projects | where_exp: "p", "p.title" %}
-        {% for project in projects %}
-          {% assign link = project.code | default: project.url | default: project.paper | default: project.demo %}
-          <a class="work-card reveal{% if forloop.first %} is-featured{% endif %}"
-             href="{{ link }}"{% if link contains 'http' %} target="_blank" rel="noopener"{% endif %}>
-            {% if forloop.first and project.image %}
-              <img class="work-thumb" src="{{ '/images/projects/' | append: project.image | relative_url }}" alt="{{ project.title }}" loading="lazy">
-            {% endif %}
-            <div class="work-body">
-              <span class="work-index">{{ forloop.index | prepend: '0' | slice: -2, 2 }} / {{ projects.size | prepend: '0' | slice: -2, 2 }}</span>
-              <h3 class="work-title">{{ project.title }}</h3>
-              <p class="work-desc">{{ project.description | markdownify | strip_html | truncate: 160 }}</p>
-              <span class="work-spacer"></span>
-              <div class="work-meta">
-                {% if project.code %}<span>GitHub</span>{% endif %}
-                {% if project.paper %}<span>Paper</span>{% endif %}
-                {% if project.demo %}<span>Demo</span>{% endif %}
-                <span>↗</span>
-              </div>
-            </div>
-          </a>
-        {% endfor %}
-      </div>
-    </div>
   </section>
 
   <!-- ============================ WRITING ============================ -->

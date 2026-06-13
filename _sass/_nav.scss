@@ -1,12 +1,10 @@
 .page-header {
-  position: sticky;
-  top: 0;
+  // sits on the page, not a separate bar: transparent, no border/shadow
+  position: relative;
   z-index: 100;
-  background-color: $header-background;
-  -webkit-backdrop-filter: saturate(160%) blur(14px);
-  backdrop-filter: saturate(160%) blur(14px);
-  border-bottom: 1px solid $hairline;
-  padding: 0.7rem 0;
+  background: transparent;
+  border-bottom: none;
+  padding: 1.4rem 0 0.6rem;
   margin-bottom: 0;
 }
 
