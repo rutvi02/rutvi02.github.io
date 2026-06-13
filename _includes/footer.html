@@ -1,11 +1,14 @@
 <footer>
   <div class="container">
-    <div class="footer-col">
-      Hello!<br/>
-      <abbr title="Last build on {{site.time | date: '%Y-%m-%d'}}">{{ site.time | date: '%B %Y'}}</abbr>
+    <span class="footer-brand">Rutvi Khamar</span>
+    <nav class="footer-links" aria-label="Social links">
+      <a href="mailto:{{ site.email }}">Email</a>
+      <a href="https://github.com/rutvi02">GitHub</a>
+      <a href="https://www.linkedin.com/in/rutvi-khamar-60999b1b9/">LinkedIn</a>
+      <a href="https://x.com/khamarrutvi">Twitter</a>
+    </nav>
+    <div class="footer-meta">
+      Built with Jekyll &middot; last updated {{ site.time | date: '%B %Y' }}
     </div>
-    <div class="footer-col">
-    </div>
-    <div class="footer-col site-desc">{{ site.description }} I'm <a href="https://x.com/khamarrutvi">@khamarrutvi</a> on Twitter.</div>
   </div>
 </footer>

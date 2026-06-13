@@ -1,17 +1,18 @@
 footer {
-  padding: $spacing-unit 0;
+  padding: $spacing-unit * 1.5 0;
   font-size: $small-font-size;
-  background-color: $footer-background;
-  color: $footer-text;
+  background-color: $bg-1;
+  color: $muted;
   margin-top: auto;
+  border-top: 1px solid $hairline;
 
   a {
-    color: rgba(255, 255, 255, 0.95);
+    color: $text-color;
     text-decoration: none;
-    transition: opacity 0.2s ease;
+    transition: color 0.2s $ease;
     &:hover {
-      opacity: 0.9;
-      text-decoration: underline;
+      color: $accent;
+      text-decoration: none;
     }
   }
 
@@ -19,18 +20,32 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
+    gap: 1rem;
   }
 
-  .footer-col {
-    padding: $spacing-unit/2 0;
+  .footer-brand {
+    font-family: $font-display;
+    font-weight: 600;
+    color: $dark-text-color;
+    font-size: 1.05rem;
   }
-  .site-desc {
-    width: 500px;
 
-    @include media-query($on-laptop) {
-      flex: 1 100%;
-    }
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    font-family: $font-mono;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+  }
+
+  .footer-meta {
+    flex: 1 1 100%;
+    color: $muted-dim;
+    font-family: $font-mono;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
   }
 }

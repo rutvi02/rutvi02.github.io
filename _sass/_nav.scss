@@ -1,9 +1,13 @@
 .page-header {
-  border-top: 4px solid $brand-color;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   background-color: $header-background;
-  padding: 0.75rem 0;
-  margin-bottom: 2.5rem;
-  box-shadow: $shadow-sm;
+  -webkit-backdrop-filter: saturate(160%) blur(14px);
+  backdrop-filter: saturate(160%) blur(14px);
+  border-bottom: 1px solid $hairline;
+  padding: 0.7rem 0;
+  margin-bottom: 0;
 }
 
 nav {
@@ -11,130 +15,72 @@ nav {
   align-items: center;
   flex-flow: row wrap;
   line-height: 36px;
-  justify-content: space-between;
-  gap: 0.5rem;
-
-  & > *:last-child {
-    margin-left: auto;
-  }
+  justify-content: flex-start;
+  gap: 0.25rem;
 
   a {
-    color: $dark-text-color;
-    padding: 0.5rem 0.6em;
+    color: $muted;
+    padding: 0.4rem 0.85rem;
     margin: 0;
     display: inline-block;
     text-decoration: none;
-    font-weight: 500;
+    font-family: $font-mono;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
     border-radius: $radius-sm;
-    opacity: 0.85;
-    border-bottom: 2px solid transparent;
-    transition: opacity 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    transition: color 0.2s $ease, background 0.2s $ease;
 
-    &:last-child {
-      padding-right: 0.6em;
-    }
-    &.active {
-      border-bottom-color: $brand-color;
-      color: $brand-color;
-      opacity: 1;
-    }
     &:hover {
       text-decoration: none;
-      opacity: 1;
-      border-bottom-color: $brand-color;
+      color: $text-color;
+      background: rgba(255, 255, 255, 0.05);
     }
-  }
 
-  .external {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    &.active {
+      color: $accent;
+    }
   }
 
   .site-title {
+    font-family: $font-display;
     font-weight: 600;
-    margin-top: 0;
-    padding: 0;
-    margin-left: 0;
-    margin-right: $spacing-unit;
+    margin: 0 auto 0 0;       // push nav links to the right
+    padding: 0.2rem 0;
     flex: 0 0 auto;
-    font-size: 1.35rem;
-    border: none;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
     color: $dark-text-color;
-    opacity: 1;
-    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
 
     &:hover {
-      color: $brand-color;
+      color: $accent;
+      background: none;
     }
   }
 
   .site-title-icon {
     vertical-align: middle;
-    margin-right: 0.35rem;
-    height: 1.6em;
+    margin-right: 0.5rem;
+    height: 1.5em;
     width: auto;
-  }
-}
-
-@include media-query($on-laptop) {
-  nav {
-    line-height: 42px;
-
-    a {
-      padding: 0 9px;
-
-      &:nth-child(2) {
-        margin-left: -8px;
-      }
-    }
-
-    .site-title {
-      flex: 0 1 100%;
-      padding: 0;
-      margin-right: 0;
-    }
+    border-radius: 6px;
   }
 }
 
 @include media-query($on-palm) {
-  .site-title {
-    margin-top: 0.5em;
-  }
-
   nav {
-    justify-content: space-around;
+    justify-content: center;
 
-    & > *:last-child {
-      margin-left: initial;
-    }
-
-    .external {
-      flex: 0 1 100%;
-      justify-content: space-around;
-    }
     .site-title {
+      flex: 0 1 100%;
+      justify-content: center;
+      margin: 0 0 0.25rem 0;
       text-align: center;
     }
-    // hide icons from internal links
+
     & > a .fas {
       display: none;
-    }
-
-    a {
-      border-radius: 3px;
-      margin: 0;
-
-      &:hover {
-        border-color: transparent;
-        background: lighten($brand-color, 55%);
-      }
-
-      &.active {
-        border-color: transparent;
-        background: lighten($brand-color, 50%);
-        border-radius: 3px;
-      }
     }
   }
 }

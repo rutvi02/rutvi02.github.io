@@ -1,0 +1,21 @@
+# Currently reading / bookshelf — edit freely.
+# status: reading | finished | queued
+- title: "The Alignment Problem"
+  author: Brian Christian
+  status: reading
+  note: "How machine learning absorbs our values — and where it goes wrong."
+
+- title: "Gödel, Escher, Bach"
+  author: Douglas Hofstadter
+  status: reading
+  note: "On minds, recursion, and meaning."
+
+- title: "Thinking in Systems"
+  author: Donella Meadows
+  status: finished
+  note: "Feedback loops everywhere once you start looking."
+
+- title: "The Idea of the Brain"
+  author: Matthew Cobb
+  status: queued
+  note: ""

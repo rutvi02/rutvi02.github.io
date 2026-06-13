@@ -1,0 +1,28 @@
+# Photography — photos YOU shot. Drop files in /images/photos/ and reference them here.
+# size: tall | wide | square  (controls tile shape in the gallery grid)
+# NOTE: the entries below currently point at PLACEHOLDER images from the old
+# template. Replace `image:` paths with your own photos.
+- image: /images/seattle.png
+  alt: "Placeholder — replace with your photo"
+  caption: "Golden hour"
+  size: wide
+
+- image: /images/himawari.png
+  alt: "Placeholder — replace with your photo"
+  caption: "From above"
+  size: tall
+
+- image: /images/london.jpg
+  alt: "Placeholder — replace with your photo"
+  caption: "City lines"
+  size: square
+
+- image: /images/broadstairs.jpg
+  alt: "Placeholder — replace with your photo"
+  caption: "By the water"
+  size: square
+
+- image: /images/brooklyn.jpeg
+  alt: "Placeholder — replace with your photo"
+  caption: "Concrete & light"
+  size: wide

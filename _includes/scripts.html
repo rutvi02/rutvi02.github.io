@@ -1,12 +1,15 @@
 <script>
-  function trim(str) {
-    return str.replace(/^\s+|\s+$/g, '');
-  }
-  var headers = document.querySelectorAll("h2, h3, h4, h5, h6");
-  for (var i=0; i<headers.length; i++) {
-    var h = headers[i];
-    var name = h.getAttribute("id");
-    var title = h.innerHTML;
-    h.innerHTML = '<a href="#' + name + '" class="anchor"><i class="fas fa-hashtag"></i></a>' + trim(title);
-  }
+  // Heading anchors — skip the editorial home, where headings are display type.
+  (function () {
+    function trim(str) { return str.replace(/^\s+|\s+$/g, ''); }
+    var headers = document.querySelectorAll(".page-content h2[id], .page-content h3[id], .page-content h4[id], .page-content h5[id], .page-content h6[id]");
+    for (var i = 0; i < headers.length; i++) {
+      var h = headers[i];
+      if (h.closest(".home")) continue;
+      var name = h.getAttribute("id");
+      var title = h.innerHTML;
+      h.innerHTML = '<a href="#' + name + '" class="anchor"><i class="fas fa-hashtag"></i></a>' + trim(title);
+    }
+  })();
 </script>
+<script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>

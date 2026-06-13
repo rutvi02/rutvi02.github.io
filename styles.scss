@@ -4,43 +4,87 @@
 @charset "utf-8";
 
 // =============================================================================
-// Design tokens – change these to maintain a consistent look across the site
+// Design tokens - dark techy-minimal canvas, broken up by playful color blocks
 // =============================================================================
 
-$base-font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+// Type
+$font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+$font-sans:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+$font-mono:    "Space Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+$base-font-family: $font-sans;
 $base-font-size:   100%;  // 16px by default
 $small-font-size:  0.9rem;
-$base-line-height: 1.64;
+$base-line-height: 1.65;
 
 $spacing-unit:     32px;
-$content-width:    800px;
+$content-width:    1120px;     // wider, editorial
+$narrow-width:     760px;      // reading measure for prose
 
-$text-color:        #2d2d2d;
-$dark-text-color:   #1a1a1a;
-$background-color:  #f8f6f1;
-$brand-color:       #2c5282;
-$brand-color-dark:  #1a365d;
-$accent-color:      #3182ce;
-$yellow-color:      #d69e2e;
-$link-color:        #2c5282;
-$link-hover-color:  #1a365d;
-$header-background: #fff;
-$footer-background: #1a365d;
-$footer-text:       rgba(255, 255, 255, 0.88);
+// Canvas - deep ink-plum (dark, slightly cool so pastels pop)
+$bg:               #16131C;
+$bg-1:             #1F1A28;     // raised surface
+$bg-2:             #271F33;     // card / tile
+$bg-3:             #342A44;     // hover / border-ish
 
-$grey-color:       #5a5a5a;
-$grey-color-lightest: #f5f5f5;
-$grey-color-dark:  #3d3d3d;
-$grey-color-light:  #8a8a8a;
+$text-color:       #F1EDF4;
+$dark-text-color:  #FFFFFF;
+$muted:            #A99FB8;     // soft lilac-grey
+$muted-dim:        #79708A;
+$hairline:         rgba(255, 255, 255, 0.10);
 
-$radius-sm:        6px;
-$radius-md:        10px;
-$shadow-sm:        0 1px 3px rgba(0, 0, 0, 0.08);
-$shadow-md:        0 4px 12px rgba(0, 0, 0, 0.08);
-$shadow-hover:     0 8px 24px rgba(0, 0, 0, 0.12);
+// Pastel pop accents (soft candy tones, popping on the dark base)
+$pink:             #F4A9C7;
+$mint:             #97E6C4;
+$lavender:         #BCA9F5;
+$butter:           #F4D58A;
+$sky:              #9FD2F0;
+
+$accent:           $pink;       // primary signature
+$accent-2:         $mint;
+$accent-3:         $lavender;
+
+// Warm-name aliases (set in the previous theme) remapped onto pastels.
+$orange:           $pink;
+$ochre:            $butter;
+$sage:             $mint;
+$rose:             $lavender;
+
+// Back-compat aliases: older partials/markup reference lime/violet/coral/cyan.
+$lime:             $mint;
+$violet:           $lavender;
+$coral:            $pink;
+$cyan:             $sky;
+
+// Links
+$link-color:       $pink;
+$link-hover-color: lighten($pink, 6%);
+
+// Backwards-compat aliases (older partials reference these names)
+$background-color:    $bg;
+$brand-color:         $orange;
+$brand-color-dark:    darken($orange, 12%);
+$accent-color:        $ochre;
+$yellow-color:        $ochre;
+$header-background:    rgba(22, 19, 28, 0.72);
+$footer-background:    $bg-1;
+$footer-text:          $muted;
+$grey-color:           $muted;
+$grey-color-lightest:  $bg-2;
+$grey-color-dark:      $text-color;
+$grey-color-light:     $bg-3;
+
+$radius-sm:        8px;
+$radius-md:        16px;
+$radius-lg:        24px;
+$shadow-sm:        0 1px 2px rgba(0, 0, 0, 0.4);
+$shadow-md:        0 10px 30px rgba(0, 0, 0, 0.45);
+$shadow-hover:     0 20px 50px rgba(0, 0, 0, 0.55);
+
+$ease:             cubic-bezier(0.22, 1, 0.36, 1);
 
 $on-palm:          600px;
-$on-laptop:        800px;
+$on-laptop:        900px;
 
 @mixin media-query($device) {
   @media screen and (max-width: $device) {
@@ -55,6 +99,9 @@ $on-laptop:        800px;
   "nav",
   "footer",
   "headings",
+  "hero",
+  "work",
+  "personal",
   "home",
   "publications",
   "projects",

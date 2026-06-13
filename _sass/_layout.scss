@@ -3,9 +3,16 @@
  */
 
 .container {
-  max-width: $content-width + 2 * $spacing-unit;
+  max-width: $content-width;
   margin: 0 auto;
   padding: 0 $spacing-unit;
+}
+
+// narrow reading measure for prose-heavy pages (blog posts, etc.)
+.page-content > .container.page,
+.page-content > .container.post,
+.page-content > .container.cv {
+  max-width: $narrow-width + 2 * $spacing-unit;
 }
 
 .page-main {
@@ -15,15 +22,46 @@
 }
 
 .page-content {
-  padding-bottom: 3rem;
+  padding-bottom: 4rem;
   flex: 1 1 auto;
   min-height: 50vh;
 }
 
+// Editorial full-bleed sections (home)
+.section {
+  padding: $spacing-unit * 2.5 0;
+  border-top: 1px solid $hairline;
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  .kicker {
+    font-family: $font-mono;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $muted-dim;
+  }
+}
+
+.eyebrow {
+  font-family: $font-mono;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $accent;
+  margin: 0 0 1rem 0;
+}
+
 @include media-query($on-palm) {
   .container {
-    max-width: $content-width + $spacing-unit;
-    margin: 0 auto;
-    padding: 0 $spacing-unit/2;
+    padding: 0 $spacing-unit / 1.5;
+  }
+  .section {
+    padding: $spacing-unit * 1.6 0;
   }
 }

@@ -1,0 +1,19 @@
+# Shows / music / events — concerts, beach shows, gigs you attended (or played).
+# Edit freely. accent: lime | violet | coral  (controls the tag color)
+- title: "Sunset Beach Sessions"
+  kind: "Live show"
+  place: "Cocoa Beach, FL"
+  date: "2026"
+  accent: coral
+
+- title: "Local Indie Night"
+  kind: "Concert"
+  place: "Melbourne, FL"
+  date: "2026"
+  accent: violet
+
+- title: "Open-air Electronic Set"
+  kind: "Festival"
+  place: "Miami, FL"
+  date: "2025"
+  accent: lime

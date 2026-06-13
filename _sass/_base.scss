@@ -7,6 +7,11 @@ html, body {
   scroll-behavior: smooth;
 }
 
+::selection {
+  background: $accent;
+  color: $bg;
+}
+
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -160,13 +165,15 @@ blockquote {
  */
 
 code {
-  color: #c35;
-  font-family: Consolas,monospace;
+  color: $accent;
+  font-family: $font-mono;
+  font-size: 0.9em;
 }
 
 pre {
-  background-color: $grey-color-lightest;
-  border-left: 0.25rem solid #c35;
+  background-color: $bg-1;
+  border: 1px solid $hairline;
+  border-left: 0.25rem solid $accent;
   margin-bottom: 0.6rem;
   margin-top: 0.2rem;
   overflow-x: auto;
