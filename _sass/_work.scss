@@ -18,6 +18,7 @@
   text-decoration: none;
   color: $text-color;
   min-height: 230px;
+  box-shadow: $shadow-sm;
   transition: transform 0.3s $ease, border-color 0.3s $ease, box-shadow 0.3s $ease;
 
   // color-block accent rail
@@ -34,7 +35,7 @@
     text-decoration: none;
     transform: translateY(-4px);
     border-color: var(--c);
-    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
+    box-shadow: $shadow-hover;
     .work-thumb { transform: scale(1.05); }
     &::before { width: 7px; }
   }

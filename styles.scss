@@ -21,54 +21,47 @@ $spacing-unit:     32px;
 $content-width:    1120px;     // wider, editorial
 $narrow-width:     760px;      // reading measure for prose
 
-// Canvas - deep ink-plum (dark, slightly cool so pastels pop)
-$bg:               #16131C;
-$bg-1:             #1F1A28;     // raised surface
-$bg-2:             #271F33;     // card / tile
-$bg-3:             #342A44;     // hover / border-ish
+// Canvas - LIGHT, drawn from the RK logo (cream + ocean blue + palm green)
+$bg:               #F5F1E7;     // soft cream page
+$bg-1:             #FFFFFF;      // cards / raised surface
+$bg-2:             #FBF8EF;      // tinted surface
+$bg-3:             #ECE7D8;      // subtle fill / hover
 
-$text-color:       #F1EDF4;
-$dark-text-color:  #FFFFFF;
-$muted:            #A99FB8;     // soft lilac-grey
-$muted-dim:        #79708A;
-$hairline:         rgba(255, 255, 255, 0.10);
+$text-color:       #23323C;      // deep ink slate
+$dark-text-color:  #16222B;      // headings
+$muted:            #5E6B73;      // muted slate
+$muted-dim:        #8E97A0;
+$hairline:         rgba(22, 34, 43, 0.12);
 
-// Pastel pop accents (soft candy tones, popping on the dark base)
-$pink:             #F4A9C7;
-$mint:             #97E6C4;
-$lavender:         #BCA9F5;
-$butter:           #F4D58A;
-$sky:              #9FD2F0;
+// Accent trio from the logo (similar shades): ocean blue, palm green,
+// + a warm sand to round out the set. Beachy and on-brand.
+$blue:             #2F8FD0;
+$green:            #2BA268;
+$honey:            #E0A23C;
+$ink:              #16222B;      // dark anchor (footer color-block)
 
-$accent:           $pink;       // primary signature
-$accent-2:         $mint;
-$accent-3:         $lavender;
+$accent:           $blue;        // primary signature
+$accent-2:         $green;
+$accent-3:         $honey;
 
-// Warm-name aliases (set in the previous theme) remapped onto pastels.
-$orange:           $pink;
-$ochre:            $butter;
-$sage:             $mint;
-$rose:             $lavender;
-
-// Back-compat aliases: older partials/markup reference lime/violet/coral/cyan.
-$lime:             $mint;
-$violet:           $lavender;
-$coral:            $pink;
-$cyan:             $sky;
+// Name aliases so older partials/markup recolor without edits.
+$pink:   $blue;  $mint:   $green; $lavender: $honey; $butter: $honey; $sky: $blue;
+$orange: $blue;  $ochre:  $honey; $sage:     $green; $rose:   $green;
+$lime:   $green; $violet: $honey; $coral:    $blue;  $cyan:   $blue;
 
 // Links
-$link-color:       $pink;
-$link-hover-color: lighten($pink, 6%);
+$link-color:       $blue;
+$link-hover-color: darken($blue, 12%);
 
 // Backwards-compat aliases (older partials reference these names)
 $background-color:    $bg;
-$brand-color:         $orange;
-$brand-color-dark:    darken($orange, 12%);
-$accent-color:        $ochre;
-$yellow-color:        $ochre;
-$header-background:    rgba(22, 19, 28, 0.72);
-$footer-background:    $bg-1;
-$footer-text:          $muted;
+$brand-color:         $blue;
+$brand-color-dark:    darken($blue, 12%);
+$accent-color:        $green;
+$yellow-color:        $honey;
+$header-background:    rgba(245, 241, 231, 0.78);
+$footer-background:    $ink;          // dark color-blocked footer
+$footer-text:          rgba(255, 255, 255, 0.72);
 $grey-color:           $muted;
 $grey-color-lightest:  $bg-2;
 $grey-color-dark:      $text-color;
@@ -77,9 +70,9 @@ $grey-color-light:     $bg-3;
 $radius-sm:        8px;
 $radius-md:        16px;
 $radius-lg:        24px;
-$shadow-sm:        0 1px 2px rgba(0, 0, 0, 0.4);
-$shadow-md:        0 10px 30px rgba(0, 0, 0, 0.45);
-$shadow-hover:     0 20px 50px rgba(0, 0, 0, 0.55);
+$shadow-sm:        0 1px 3px rgba(22, 34, 43, 0.06);
+$shadow-md:        0 10px 30px rgba(22, 34, 43, 0.10);
+$shadow-hover:     0 18px 44px rgba(22, 34, 43, 0.16);
 
 $ease:             cubic-bezier(0.22, 1, 0.36, 1);
 

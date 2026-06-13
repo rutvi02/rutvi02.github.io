@@ -1,17 +1,17 @@
 footer {
   padding: $spacing-unit * 1.5 0;
   font-size: $small-font-size;
-  background-color: $bg-1;
-  color: $muted;
+  background-color: $footer-background;
+  color: $footer-text;
   margin-top: auto;
   border-top: 1px solid $hairline;
 
   a {
-    color: $text-color;
+    color: rgba(255, 255, 255, 0.92);
     text-decoration: none;
     transition: color 0.2s $ease;
     &:hover {
-      color: $accent;
+      color: $accent-2;
       text-decoration: none;
     }
   }
@@ -28,7 +28,7 @@ footer {
   .footer-brand {
     font-family: $font-display;
     font-weight: 600;
-    color: $dark-text-color;
+    color: #fff;
     font-size: 1.05rem;
   }
 

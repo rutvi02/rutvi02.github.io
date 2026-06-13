@@ -43,7 +43,7 @@
     var nodes = [];
     var w, h, raf;
 
-    var COLORS = ["#F4A9C7", "#97E6C4", "#BCA9F5"];
+    var COLORS = ["#2F8FD0", "#2BA268", "#E0A23C"];
 
     function size() {
       w = canvas.clientWidth;
