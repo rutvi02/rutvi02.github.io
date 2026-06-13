@@ -1,10 +1,23 @@
 footer {
-  padding: $spacing-unit * 1.5 0;
+  position: relative;
+  padding: $spacing-unit * 2 0 $spacing-unit * 1.5;
   font-size: $small-font-size;
-  background-color: $footer-background;
   color: $footer-text;
   margin-top: auto;
-  border-top: 1px solid $hairline;
+  // soft dark gradient instead of a flat slab
+  background:
+    radial-gradient(120% 140% at 15% 0%, rgba($blue, 0.16), transparent 55%),
+    radial-gradient(120% 140% at 90% 0%, rgba($green, 0.14), transparent 55%),
+    linear-gradient(180deg, lighten($ink, 5%) 0%, $ink 60%);
+
+  // blue -> green accent line on top, echoing the RK logo
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $blue, $green, $honey);
+  }
 
   a {
     color: rgba(255, 255, 255, 0.92);

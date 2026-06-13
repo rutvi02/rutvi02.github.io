@@ -22,7 +22,17 @@ body {
   font-size: $base-font-size;
   line-height: $base-line-height;
   color: $text-color;
+  // subtle shade that deepens (and cools toward the logo palette) as you scroll
   background-color: $background-color;
+  background-image: linear-gradient(
+    180deg,
+    #F7F3EA 0%,
+    #F1ECDF 42%,
+    #E9EAE0 78%,
+    #E2E8E6 100%
+  );
+  background-repeat: no-repeat;
+  background-attachment: scroll;
 
   text-rendering: optimizeLegibility;
 
