@@ -4,20 +4,8 @@ footer {
   font-size: $small-font-size;
   color: $muted;
   margin-top: auto;
-  // light, matching the theme: soft cream with faint logo-tinted glows
-  background:
-    radial-gradient(120% 150% at 12% 0%, rgba($blue, 0.10), transparent 55%),
-    radial-gradient(120% 150% at 92% 0%, rgba($green, 0.10), transparent 55%),
-    linear-gradient(180deg, #EEF1EC 0%, #F3EFE4 100%);
-
-  // blue -> green accent line on top, echoing the RK logo
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, $blue, $green, $honey);
-  }
+  // merge into the page like the header: transparent, no block, no border
+  background: transparent;
 
   a {
     color: $text-color;
