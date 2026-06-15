@@ -61,59 +61,24 @@ title: Home
       </div>
 
       <!-- now note -->
-      <div class="card now-note reveal">
-        <p>"I'm happiest somewhere between a research paper and a beach sunset — chasing
-        how machines reason, and how light falls through a viewfinder."</p>
-        <span class="now-sign">— currently in Florida, building &amp; reading</span>
+      <div class="now-note reveal">
+        <span class="now-quote-mark" aria-hidden="true">&ldquo;</span>
+        <p>I'm happiest somewhere between a research paper and a beach sunset — chasing
+        how machines reason, and how light falls through a viewfinder.</p>
+        <span class="now-sign">currently in Florida — building &amp; reading</span>
       </div>
 
-      <div class="personal-grid">
-        <!-- photography -->
-        <div class="card reveal">
-          <p class="card-label">Through my lens</p>
-          <div class="photo-gallery">
-            {% for photo in site.data.photos %}
-              <figure class="photo">
-                <img src="{{ photo.image | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
-                {% if photo.caption %}<figcaption class="photo-cap">{{ photo.caption }}</figcaption>{% endif %}
-              </figure>
-            {% endfor %}
-          </div>
-        </div>
-
-        <!-- reading + shows stacked -->
-        <div style="display:flex; flex-direction:column; gap:1.5rem;">
-          <div class="card reveal">
-            <p class="card-label">On my shelf</p>
-            <div class="reading-list">
-              {% for book in site.data.reading %}
-                <div class="book">
-                  <div class="book-top">
-                    <span class="book-title">{{ book.title }}</span>
-                    <span class="status {{ book.status }}">{{ book.status }}</span>
-                  </div>
-                  <span class="book-author">{{ book.author }}</span>
-                  {% if book.note != "" %}<span class="book-note">{{ book.note }}</span>{% endif %}
-                </div>
-              {% endfor %}
-            </div>
-          </div>
-
-          <div class="card reveal">
-            <p class="card-label">Shows &amp; music</p>
-            <div class="shows-list">
-              {% for show in site.data.shows %}
-                <div class="show">
-                  <span>
-                    <span class="tag {{ show.accent | default: 'lime' }}">{{ show.kind }}</span>
-                    <div class="show-name">{{ show.title }}</div>
-                    <span class="show-place">{{ show.place }}</span>
-                  </span>
-                  <span class="show-date">{{ show.date }}</span>
-                </div>
-              {% endfor %}
-            </div>
-          </div>
+      <!-- photography: scattered prints -->
+      <div class="lens reveal">
+        <p class="lens-label">Through my lens<span class="lens-hint">hover to straighten</span></p>
+        <div class="photo-wall">
+          {% for photo in site.data.photos %}
+            <figure class="print">
+              <span class="print-tape" aria-hidden="true"></span>
+              <img src="{{ photo.image | relative_url }}" alt="{{ photo.alt }}" loading="lazy">
+              {% if photo.caption %}<figcaption class="print-cap">{{ photo.caption }}</figcaption>{% endif %}
+            </figure>
+          {% endfor %}
         </div>
       </div>
     </div>
