@@ -117,6 +117,51 @@
     }
   }
 
+  // ----------------------------------------------------------------
+  // Photo deck — a small stack of prints; click/tap to flip the top
+  // one to the back.
+  // ----------------------------------------------------------------
+  function initDeck() {
+    var deck = document.querySelector("[data-deck]");
+    if (!deck) return;
+    var stack = deck.querySelector(".deck-stack");
+    var idxEl = deck.querySelector("[data-deck-idx]");
+    var cards = Array.prototype.slice.call(stack.querySelectorAll(".deck-card"));
+    var n = cards.length;
+    if (!n) return;
+
+    var order = cards.slice(); // order[0] is the visible top card
+
+    function render() {
+      order.forEach(function (card, p) {
+        var depth = Math.min(p, 3);
+        var tilt = p === 0 ? 0 : (p % 2 ? 2.5 : -2.5);
+        card.style.zIndex = n - p;
+        card.style.opacity = p > 3 ? "0" : "1";
+        card.style.pointerEvents = p === 0 ? "auto" : "none";
+        card.style.transform =
+          "translate(" + (depth * 4) + "px," + (depth * 6) + "px) " +
+          "scale(" + (1 - depth * 0.04) + ") rotate(" + tilt + "deg)";
+      });
+      if (idxEl) idxEl.textContent = (cards.indexOf(order[0]) + 1);
+    }
+
+    function advance() {
+      order.push(order.shift());
+      render();
+    }
+
+    stack.setAttribute("role", "button");
+    stack.setAttribute("tabindex", "0");
+    stack.setAttribute("aria-label", "Photo deck — activate to see the next print");
+    stack.addEventListener("click", advance);
+    stack.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); advance(); }
+    });
+
+    render();
+  }
+
   function ready(fn) {
     if (document.readyState !== "loading") fn();
     else document.addEventListener("DOMContentLoaded", fn);
@@ -125,5 +170,6 @@
   ready(function () {
     initReveal();
     initHeroCanvas();
+    initDeck();
   });
 })();

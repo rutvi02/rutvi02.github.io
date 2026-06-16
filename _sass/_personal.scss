@@ -59,13 +59,21 @@
 // Off the clock - quote + scattered photo prints
 // ============================================================
 
+// Off the clock - quote leads, a small photo deck sits beside it
+.off-clock {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
 // Now note - periwinkle colour block with an oversized quote mark
 .now-note {
   position: relative;
   background: $periwinkle;
   border-radius: $radius-md;
   padding: 2.6rem 2.4rem 2.2rem;
-  margin-top: 1rem;
   overflow: hidden;
 
   .now-quote-mark {
@@ -101,90 +109,65 @@
   }
 }
 
-// Photography - prints scattered on a wall, hover to straighten
-.lens {
-  margin-top: 3rem;
+// Photography - a small deck of prints; click to flip to the next
+.deck {
+  justify-self: center;
+  width: 100%;
+  max-width: 290px;
 
-  .lens-label {
+  .deck-stack {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    cursor: pointer;
+  }
+
+  .deck-card {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    padding: 0.55rem 0.55rem 0;
+    background: $bg-1;
+    border-radius: 3px;
+    box-shadow: $shadow-md;
     display: flex;
-    align-items: baseline;
-    gap: 0.8rem;
-    font-family: $font-mono;
-    font-size: 0.72rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: $muted-dim;
-    margin: 0 0 2rem 0;
+    flex-direction: column;
+    transform-origin: center bottom;
+    transition: transform 0.45s $ease, opacity 0.45s $ease;
+    will-change: transform;
 
-    .lens-hint {
-      font-size: 0.64rem;
-      letter-spacing: 0.08em;
-      text-transform: none;
-      color: $muted-dim;
-      opacity: 0.7;
-      &::before { content: "— "; }
+    img {
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      object-fit: cover;
+      display: block;
+      border-radius: 1px;
+      filter: saturate(0.92);
+    }
+
+    .deck-cap {
+      padding: 0.55rem 0.2rem 0.7rem;
+      font-family: $font-mono;
+      font-size: 0.72rem;
+      letter-spacing: 0.02em;
+      color: $muted;
+      text-align: center;
     }
   }
-}
 
-.photo-wall {
-  column-count: 3;
-  column-gap: 1.6rem;
-}
-
-.print {
-  break-inside: avoid;
-  display: block;
-  position: relative;
-  margin: 0 0 1.8rem;
-  padding: 0.7rem 0.7rem 0;
-  background: $bg-1;
-  border-radius: 3px;
-  box-shadow: $shadow-md;
-  transition: transform 0.4s $ease, box-shadow 0.4s $ease;
-  transform-origin: center 70%;
-
-  // little strip of tape at the top
-  .print-tape {
-    position: absolute;
-    top: -0.6rem;
-    left: 50%;
-    width: 3.6rem;
-    height: 1.3rem;
-    transform: translateX(-50%) rotate(-3deg);
-    background: rgba($periwinkle, 0.7);
-    box-shadow: 0 1px 2px rgba($ink, 0.08);
-  }
-
-  img {
-    width: 100%;
-    display: block;
-    border-radius: 1px;
-    filter: saturate(0.92);
-    transition: filter 0.4s $ease;
-  }
-
-  .print-cap {
-    padding: 0.7rem 0.2rem 0.9rem;
+  .deck-meta {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 1.1rem;
     font-family: $font-mono;
-    font-size: 0.74rem;
-    letter-spacing: 0.02em;
-    color: $muted;
-    text-align: center;
-  }
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $muted-dim;
 
-  // pseudo-random tilt per print
-  &:nth-child(3n+1) { transform: rotate(-2.4deg); }
-  &:nth-child(3n+2) { transform: rotate(1.8deg); }
-  &:nth-child(3n+3) { transform: rotate(-1deg); }
-  &:nth-child(4n+2) { margin-top: 1.6rem; }
-  &:nth-child(5n+3) { margin-top: 0.9rem; }
-
-  &:hover {
-    transform: rotate(0deg) translateY(-6px) scale(1.03);
-    box-shadow: $shadow-hover;
-    z-index: 2;
-    img { filter: saturate(1.08); }
+    .deck-count { letter-spacing: 0.08em; }
   }
 }
 
@@ -205,11 +188,11 @@
 }
 
 @include media-query($on-laptop) {
-  .photo-wall { column-count: 2; }
+  .off-clock { grid-template-columns: 1fr; gap: 2.2rem; }
+  .deck { max-width: 260px; }
 }
 
 @include media-query($on-palm) {
-  .photo-wall { column-count: 1; }
   .now-note { padding: 2.2rem 1.6rem 1.8rem; }
   .writing-row {
     grid-template-columns: 1fr;
