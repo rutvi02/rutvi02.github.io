@@ -29,8 +29,25 @@
 
 // Editorial full-bleed sections (home)
 .section {
-  padding: $spacing-unit * 2.5 0;
-  border-top: 1px solid $hairline;
+  position: relative;
+  padding: $spacing-unit * 3 0;
+
+  // soft divider that fades out at both ends, rather than a hard full-width rule
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      $hairline 22%,
+      $hairline 78%,
+      transparent 100%
+    );
+  }
 }
 
 .section-head {
